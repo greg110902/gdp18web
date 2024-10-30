@@ -37,7 +37,11 @@ export default async function Home() {
     <>
       <div>
         {JSON.stringify(
-          (await fetch("https://telemetry-worker.gwgh1g21.workers.dev")).json()
+          (
+            await fetch("https://telemetry-worker.gwgh1g21.workers.dev", {
+              method: "GET",
+            })
+          ).json()
         )}
       </div>
       <GoogleMap
