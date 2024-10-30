@@ -4,7 +4,7 @@ import Image from "next/image";
 import React from "react";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 
-export default function Home() {
+export default async function Home() {
   const [map, setMap] = React.useState(null);
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -34,16 +34,19 @@ export default function Home() {
   }, []);
 
   return isLoaded ? (
-    <GoogleMap
-      mapContainerStyle={containerStyle}
-      center={center}
-      zoom={10}
-      onLoad={onLoad}
-      onUnmount={onUnmount}
-    >
-      {/* Child components, such as markers, info windows, etc. */}
-      <></>
-    </GoogleMap>
+    <>
+      <div>{await fetch("https://telemetry-worker.gwgh1g21.workers.dev")}</div>
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={center}
+        zoom={10}
+        onLoad={onLoad}
+        onUnmount={onUnmount}
+      >
+        {/* Child components, such as markers, info windows, etc. */}
+        <></>
+      </GoogleMap>
+    </>
   ) : (
     <></>
   );
