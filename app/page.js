@@ -35,7 +35,11 @@ export default async function Home() {
 
   return isLoaded ? (
     <>
-      <div>{await fetch("https://telemetry-worker.gwgh1g21.workers.dev")}</div>
+      <div>
+        {JSON.stringify(
+          (await fetch("https://telemetry-worker.gwgh1g21.workers.dev")).json()
+        )}
+      </div>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
