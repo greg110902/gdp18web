@@ -51,7 +51,7 @@ export default function Home() {
 
   return isLoaded && data ? (
     <>
-      <div>{data}</div>
+      <div>{data.json()}</div>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
