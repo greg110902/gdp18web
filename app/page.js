@@ -18,7 +18,7 @@ export default function Home() {
     const fetchData = async () => {
       const d = await fetch("https://telemetry-worker.gwgh1g21.workers.dev/");
 
-      setData(d);
+      setData(d.json());
     };
     setWidth(window.screen.width);
 
@@ -51,7 +51,7 @@ export default function Home() {
 
   return isLoaded && data ? (
     <>
-      <div>{data.json()}</div>
+      <div>{data}</div>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
