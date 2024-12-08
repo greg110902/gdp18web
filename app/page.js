@@ -35,20 +35,7 @@ export default async function Home() {
 
   return isLoaded ? (
     <>
-      <div>
-        {JSON.stringify(
-          (
-            await fetch("https://telemetry-worker.gwgh1g21.workers.dev", {
-              method: "GET",
-              headers: {
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
-                "Access-Control-Max-Age": 86400,
-              },
-            })
-          ).json()
-        )}
-      </div>
+      <div></div>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
