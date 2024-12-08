@@ -18,7 +18,7 @@ export default function Home() {
     const fetchData = async () => {
       const d = await fetch("https://telemetry-worker.gwgh1g21.workers.dev/");
 
-      setData(d);
+      setData(d.json());
     };
     setWidth(window.screen.width);
 
@@ -50,7 +50,7 @@ export default function Home() {
   }, []);
 
   if (data !== null) {
-    console.log(data.json());
+    console.log(JSON.stringify(data));
   }
 
   return isLoaded && data ? (
