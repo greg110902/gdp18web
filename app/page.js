@@ -22,7 +22,7 @@ export default function Home() {
     };
     setWidth(window.screen.width);
 
-    if (!data || data===null) {
+    if (!data || data === null) {
       fetchData();
     }
   });
@@ -49,7 +49,7 @@ export default function Home() {
     setMap(null);
   }, []);
 
-  return isLoaded ? (
+  return isLoaded && data ? (
     <>
       <div>{JSON.stringify(data)}</div>
       <GoogleMap
