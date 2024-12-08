@@ -7,6 +7,7 @@ import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 export default function Home() {
   const [map, setMap] = React.useState(null);
   const [width, setWidth] = React.useState();
+  const [data, setData] = React.useState(null);
   //const [height, setHeight] = React.useState()
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -14,7 +15,16 @@ export default function Home() {
   });
 
   useEffect(() => {
+    const fetchData = async () => {
+      const d = await fetch("https://telemetry-worker.gwgh1g21.workers.dev/");
+
+      setData(d);
+    };
     setWidth(window.screen.width);
+
+    if (!data) {
+      fetchData();
+    }
   });
 
   const containerStyle = {
@@ -41,9 +51,7 @@ export default function Home() {
 
   return isLoaded ? (
     <>
-      <div>
-        {JSON.stringify(fetch("https://telemetry-worker.gwgh1g21.workers.dev/"))}
-      </div>
+      <div>{JSON.stringify(data)}</div>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
