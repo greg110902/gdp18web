@@ -55,7 +55,7 @@ export default function Home() {
 
   return isLoaded && data ? (
     <>
-      <div>{JSON.stringify(data.clone().json())}</div>
+      <div>{JSON.stringify(data.clone.json())}</div>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
