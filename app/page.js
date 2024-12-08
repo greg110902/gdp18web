@@ -49,6 +49,10 @@ export default function Home() {
     setMap(null);
   }, []);
 
+  if (data !== null) {
+    console.log(JSON.stringify(data));
+  }
+
   return isLoaded && data ? (
     <>
       <div>{JSON.stringify(data)}</div>
