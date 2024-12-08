@@ -50,7 +50,7 @@ export default function Home() {
   }, []);
 
   if (data !== null) {
-    console.log(data.json());
+    console.log(data.clone().json());
   }
 
   return isLoaded && data ? (
