@@ -45,7 +45,7 @@ export default function Home() {
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={20}
+        zoom={5}
         onLoad={onLoad}
         onUnmount={onUnmount}
       >
