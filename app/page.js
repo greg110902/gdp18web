@@ -11,8 +11,6 @@ export default function Home() {
     googleMapsApiKey: "AIzaSyAs91rb9-ScOhp1A6CyZBbpR4LrUdtzeGo",
   });
 
-  getsi;
-
   const containerStyle = {
     width: `${window.screen.width}px`,
     height: `${window.screen.width * 0.75}px`,
