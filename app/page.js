@@ -6,7 +6,7 @@ import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 
 export default function Home() {
   const [map, setMap] = React.useState(null);
-  const [width, setWidth] = React.useState()
+  const [width, setWidth] = React.useState();
   //const [height, setHeight] = React.useState()
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -14,18 +14,18 @@ export default function Home() {
   });
 
   useEffect(() => {
-    setWidth(window.screen.width)
-  })
-  
-    const containerStyle = {
-      width: `${width}px`,
-      height: `${width * 0.75}px`,
-    };
+    setWidth(window.screen.width);
+  });
 
-    const center = {
-      lat: 50.93511631590241,
-      lng: -1.3946559970412276,
-    };
+  const containerStyle = {
+    width: `${width}px`,
+    height: `${width * 0.75}px`,
+  };
+
+  const center = {
+    lat: 50.93511631590241,
+    lng: -1.3946559970412276,
+  };
 
   const onLoad = React.useCallback(function callback(map) {
     // This is just an example of getting and using the map instance!!! don't just blindly copy!
@@ -45,7 +45,7 @@ export default function Home() {
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={10}
+        zoom={5}
         onLoad={onLoad}
         onUnmount={onUnmount}
       >
