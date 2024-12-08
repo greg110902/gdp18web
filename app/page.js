@@ -22,7 +22,7 @@ export default function Home() {
     };
     setWidth(window.screen.width);
 
-    if (!data) {
+    if (!data || data===null) {
       fetchData();
     }
   });
