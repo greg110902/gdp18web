@@ -41,11 +41,13 @@ export default function Home() {
 
   return isLoaded ? (
     <>
-      <div></div>
+      <div>
+        {JSON.stringify(fetch("https://telemetry-worker.gwgh1g21.workers.dev/"))}
+      </div>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={10}
+        zoom={13}
         onLoad={onLoad}
         onUnmount={onUnmount}
       >
