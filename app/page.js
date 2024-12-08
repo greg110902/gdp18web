@@ -4,7 +4,7 @@ import Image from "next/image";
 import React from "react";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 
-export default async function Home() {
+export default function Home() {
   const [map, setMap] = React.useState(null);
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
