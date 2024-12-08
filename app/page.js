@@ -1,25 +1,31 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 
 export default function Home() {
   const [map, setMap] = React.useState(null);
+  const [width, setWidth] = React.useState()
+  //const [height, setHeight] = React.useState()
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: "AIzaSyAs91rb9-ScOhp1A6CyZBbpR4LrUdtzeGo",
   });
 
-  const containerStyle = {
-    width: `${window.screen.width}px`,
-    height: `${window.screen.width * 0.75}px`,
-  };
+  useEffect(() => {
+    setWidth(window.screen.width)
+  })
+  
+    const containerStyle = {
+      width: `${width}px`,
+      height: `${width * 0.75}px`,
+    };
 
-  const center = {
-    lat: 50.93511631590241,
-    lng: -1.3946559970412276,
-  };
+    const center = {
+      lat: 50.93511631590241,
+      lng: -1.3946559970412276,
+    };
 
   const onLoad = React.useCallback(function callback(map) {
     // This is just an example of getting and using the map instance!!! don't just blindly copy!
