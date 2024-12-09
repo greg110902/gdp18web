@@ -112,17 +112,10 @@ export default function Home() {
           </tr>
           <tr>
             <td class="tg-baqh">GPS Coordinates</td>
-            <td class="tg-baqh">50.93511631590241, </td>
+            <td class="tg-baqh">{"50.93511631590241, \n -1.39639"}</td>
           </tr>
         </tbody>
       </table>
-
-      <div
-        className="btn"
-        onClick={() => document.getElementById("my_modal_2").showModal()}
-      >
-        Hello
-      </div>
     </>
   ) : (
     <></>
