@@ -108,7 +108,7 @@ export default function Home() {
         <></>
       </GoogleMap>
       <table class="tg" className="flex align-middle justify-center">
-        <tbody>
+        <tbody className="text-black border shadow my-5">
           <tr>
             <td class="tg-c3ow">Airspeed (ms^-1)</td>
             <td class="tg-c3ow">15.8</td>
