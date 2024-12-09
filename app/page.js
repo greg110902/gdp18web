@@ -139,6 +139,11 @@ export default function Home() {
           </tr>
         </tbody>
       </table>
+
+      <div>
+        <div></div>
+        <img src="/public/radio-svgrepo-com.svg" alt="gps"></img>
+      </div>
     </>
   ) : (
     <></>
