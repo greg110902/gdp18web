@@ -1,5 +1,6 @@
 "use client";
 
+import Head from "next/head";
 import Image from "next/image";
 import React, { useEffect } from "react";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
@@ -70,6 +71,9 @@ export default function Home() {
 
   return isLoaded && data ? (
     <>
+      <Head>
+        <title>GDP18 Website</title>
+      </Head>
       <dialog id="my_modal_2" className="modal">
         <div className="modal-box">
           <Image src={pic} alt="Floating ring" />
