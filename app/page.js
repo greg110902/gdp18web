@@ -69,7 +69,7 @@ export default function Home() {
     { lat: 50.936497, lng: -1.400531 },
   ];
 
-  var connectedSats = 5
+  var connectedSats = 5;
 
   return isLoaded && data ? (
     <>
@@ -142,10 +142,17 @@ export default function Home() {
         </tbody>
       </table>
 
-      <div className="flex justify-end flex-row-reverse">
-        <div>5</div>
+      <div className="flex justify-end">
+        <div
+          className={`${
+            connectedSats > 3 ? "text-green-600" : "text-red-600"
+          } justify-end`}
+        >
+          {connectedSats}
+        </div>
         <img
           src="https://gdp18web.pages.dev/radio-svgrepo-com.svg"
+          className="justify-end"
           alt="gps"
           width={25}
           height={25}
