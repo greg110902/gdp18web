@@ -91,12 +91,15 @@ export default function Home() {
         <MarkerF
           position={{ lat: 50.937344, lng: -1.39639 }}
           icon={{
-            url: "/public/airplane-svgrepo-com.svg",
+            url: "/airplane-svgrepo-com.svg",
             scale: 5,
           }}
           rotation={270}
         />
-        <MarkerF position={{lat: 50.931809, lng:-1.391613}} onClick={() => document.getElementById("my_modal_2").showModal()} />
+        <MarkerF
+          position={{ lat: 50.931809, lng: -1.391613 }}
+          onClick={() => document.getElementById("my_modal_2").showModal()}
+        />
         <></>
       </GoogleMap>
       <table class="tg" className="flex align-middle justify-center">
