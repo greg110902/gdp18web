@@ -2,12 +2,8 @@
 
 import Image from "next/image";
 import React, { useEffect } from "react";
-import {
-  GoogleMap,
-  useJsApiLoader,
-  PolylineF,
-  MarkerF,
-} from "@react-google-maps/api";
+import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import { PolylineF, MarkerF } from "@react-google-maps/api";
 
 export default function Home() {
   const [map, setMap] = React.useState(null);
