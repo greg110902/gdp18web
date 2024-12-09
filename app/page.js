@@ -77,7 +77,7 @@ export default function Home() {
       <dialog id="my_modal_2" className="modal bg-white">
         <div className="modal-box bg-slate-300">
           <Image src={pic} alt="Floating ring" />
-          <div className="flex justify-center align-middle">
+          <div className="flex justify-center align-middle text-black pt-3">
             Confidence = 0.86
           </div>
         </div>
