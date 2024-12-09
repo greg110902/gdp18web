@@ -142,22 +142,24 @@ export default function Home() {
         </tbody>
       </table>
 
-      <div className="flex justify-end border shadow m-3">
-        <div
-          className={`${
-            connectedSats > 3 ? "text-green-600" : "text-red-600"
-          } justify-end`}
-        >
-          {connectedSats}
+      <div className="flex justify-end m-3">
+        <div className="border shadow p-2">
+          <div
+            className={`${
+              connectedSats > 3 ? "text-green-600" : "text-red-600"
+            } justify-end`}
+          >
+            {connectedSats}
+          </div>
+          <img
+            src="https://gdp18web.pages.dev/radio-svgrepo-com.svg"
+            className="justify-end"
+            alt="gps"
+            color={`${connectedSats > 3 ? "green" : "red"}`}
+            width={25}
+            height={25}
+          ></img>
         </div>
-        <img
-          src="https://gdp18web.pages.dev/radio-svgrepo-com.svg"
-          className="justify-end"
-          alt="gps"
-          color={`${connectedSats > 3 ? "green" : "red"}`}
-          width={25}
-          height={25}
-        ></img>
       </div>
     </>
   ) : (
