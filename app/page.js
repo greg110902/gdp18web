@@ -2,7 +2,12 @@
 
 import Image from "next/image";
 import React, { useEffect } from "react";
-import { GoogleMap, useJsApiLoader, Polyline } from "@react-google-maps/api";
+import {
+  GoogleMap,
+  useJsApiLoader,
+  Polyline,
+  Marker,
+} from "@react-google-maps/api";
 
 export default function Home() {
   const [map, setMap] = React.useState(null);
@@ -72,6 +77,11 @@ export default function Home() {
       >
         {/* Child components, such as markers, info windows, etc. */}
         <Polyline path={FlightPath} />
+        <Marker
+          position={{ lat: 50.937344, lng: -1.39639 }}
+          icon={google.maps.SymbolPath.FORWARD_CLOSED_ARROW}
+          rotation={270}
+        />
         <></>
       </GoogleMap>
       <table class="tg" className="flex align-middle justify-center">
