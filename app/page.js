@@ -9,8 +9,8 @@ import {
   FORWARD_CLOSED_ARROW,
   Point,
 } from "@react-google-maps/api";
-import pic from "./public/106.png";
-import ac_marker from "./public/airplane-svgrepo-com.png";
+import pic from "/public/106.png";
+import ac_marker from "/public/airplane-svgrepo-com.png";
 
 export default function Home() {
   const [map, setMap] = React.useState(null);
@@ -91,7 +91,7 @@ export default function Home() {
         <PolylineF path={FlightPath} strokeColor={"#FC0303"} />
         <MarkerF
           position={{ lat: 50.937344, lng: -1.39639 }}
-          icon="./public/airplane-svgrepo-com.png"
+          icon="/public/airplane-svgrepo-com.png"
           rotation={270}
           onClick={() => document.getElementById("my_modal_2").showModal()}
         />
