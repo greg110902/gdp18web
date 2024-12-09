@@ -73,7 +73,7 @@ export default function Home() {
     fillOpacity: 0.6,
     strokeWeight: 0,
     rotation: 0,
-    scale: 2,
+    scale: 1,
   };
 
   return isLoaded && data ? (
