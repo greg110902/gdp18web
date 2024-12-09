@@ -95,8 +95,8 @@ export default function Home() {
             scale: 5,
           }}
           rotation={270}
-          onClick={() => document.getElementById("my_modal_2").showModal()}
         />
+        <MarkerF position={{lat: 50.931809, lng:-1.391613}} onClick={() => document.getElementById("my_modal_2").showModal()} />
         <></>
       </GoogleMap>
       <table class="tg" className="flex align-middle justify-center">
