@@ -75,6 +75,8 @@ export default function Home() {
       origin: new google.maps.Point(0, 0), // origin
       anchor: new google.maps.Point(0, 0), // anchor
     };
+  } else {
+    const icon = null;
   }
 
   return isLoaded && data ? (
