@@ -108,21 +108,21 @@ export default function Home() {
         <></>
       </GoogleMap>
       <table class="tg" className="flex align-middle justify-center">
-        <tbody className="text-black border shadow my-5">
-          <tr>
+        <tbody className="text-black border shadow my-5 P-2">
+          <tr className="border">
             <td class="tg-c3ow">Airspeed (ms^-1)</td>
             <td class="tg-c3ow">15.8</td>
           </tr>
 
-          <tr>
+          <tr className="border">
             <td class="tg-c3ow">Altitude (m)</td>
             <td class="tg-c3ow">25</td>
           </tr>
-          <tr>
+          <tr className="border">
             <td class="tg-baqh">Heading</td>
             <td class="tg-baqh">0</td>
           </tr>
-          <tr>
+          <tr className="border">
             <td class="tg-baqh">GPS Coordinates</td>
             <td class="tg-baqh">{"50.93511631590241, \n -1.39639"}</td>
           </tr>
