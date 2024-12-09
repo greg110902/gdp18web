@@ -151,7 +151,7 @@ export default function Home() {
           >
             {connectedSats}
           </div>
-          <Image
+          <img
             src="https://gdp18web.pages.dev/radio-svgrepo-com.svg"
             className="justify-end"
             alt="gps"
@@ -159,7 +159,7 @@ export default function Home() {
             color={`${connectedSats > 3 ? "green" : "red"}`}
             width={25}
             height={25}
-          ></Image>
+          ></img>
         </div>
       </div>
     </>
