@@ -69,6 +69,8 @@ export default function Home() {
     { lat: 50.936497, lng: -1.400531 },
   ];
 
+  var connectedSats = 5
+
   return isLoaded && data ? (
     <>
       <Head>
