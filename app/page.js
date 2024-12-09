@@ -91,7 +91,7 @@ export default function Home() {
         <MarkerF
           position={{ lat: 50.937344, lng: -1.39639 }}
           icon={{
-            url: require("/public/airplane-svgrepo-com.svg").default,
+            url: "/public/airplane-svgrepo-com.svg",
             scale: 5,
           }}
           rotation={270}
