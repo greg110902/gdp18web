@@ -69,6 +69,13 @@ export default function Home() {
     { lat: 50.937344, lng: -1.39639 },
   ];
 
+  const icon = {
+    url: "https://gdp18web.pages.dev/airplane-svgrepo-com.png", // url
+    scaledSize: new google.maps.Size(10, 10), // scaled size
+    origin: new google.maps.Point(0, 0), // origin
+    anchor: new google.maps.Point(0, 0), // anchor
+  };
+
   return isLoaded && data ? (
     <>
       <dialog id="my_modal_2" className="modal">
@@ -91,7 +98,7 @@ export default function Home() {
         <PolylineF path={FlightPath} strokeColor={"#FC0303"} />
         <MarkerF
           position={{ lat: 50.937344, lng: -1.39639 }}
-          icon="https://gdp18web.pages.dev/airplane-svgrepo-com.png"
+          icon={icon}
           rotation={270}
           onClick={() => document.getElementById("my_modal_2").showModal()}
         />
