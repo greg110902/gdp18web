@@ -92,7 +92,7 @@ export default function Home() {
           position={{ lat: 50.937344, lng: -1.39639 }}
           icon={{
             url: "/airplane-svgrepo-com.svg",
-            scale: 5,
+            scale: 0.5,
           }}
           rotation={270}
         />
