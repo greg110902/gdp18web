@@ -92,9 +92,9 @@ export default function Home() {
           position={{ lat: 50.937344, lng: -1.39639 }}
           icon={{
             url: "/airplane-svgrepo-com.svg",
-            scaledSize: new google.maps.Size(10, 10),
+            scaledSize: new google.maps.Size(25, 25),
           }}
-          rotation={270}
+          rotation={0}
         />
         <MarkerF
           position={{ lat: 50.931809, lng: -1.391613 }}
