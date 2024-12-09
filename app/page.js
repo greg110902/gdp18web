@@ -140,9 +140,14 @@ export default function Home() {
         </tbody>
       </table>
 
-      <div>
-        <div></div>
-        <img src="/public/radio-svgrepo-com.svg" alt="gps"></img>
+      <div className="flex">
+        <div>5</div>
+        <img
+          src="https://gdp18web.pages.dev/radio-svgrepo-com.svg"
+          alt="gps"
+          width={25}
+          height={25}
+        ></img>
       </div>
     </>
   ) : (
