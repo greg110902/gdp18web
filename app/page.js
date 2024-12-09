@@ -74,7 +74,7 @@ export default function Home() {
       <Head>
         <title>GDP18 Website</title>
       </Head>
-      <dialog id="my_modal_2" className="modal">
+      <dialog id="my_modal_2" className="modal bg-white">
         <div className="modal-box">
           <Image src={pic} alt="Floating ring" />
         </div>
