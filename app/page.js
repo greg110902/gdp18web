@@ -143,7 +143,7 @@ export default function Home() {
       </table>
 
       <div className="flex justify-end m-3">
-        <div className="border shadow p-2">
+        <div className="flex-grow border rounded shadow p-2">
           <div
             className={`${
               connectedSats > 3 ? "text-green-600" : "text-red-600"
