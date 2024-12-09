@@ -3,7 +3,11 @@
 import Image from "next/image";
 import React, { useEffect } from "react";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
-import { PolylineF, MarkerF } from "@react-google-maps/api";
+import {
+  PolylineF,
+  MarkerF,
+  FORWARD_CLOSED_ARROW,
+} from "@react-google-maps/api";
 
 export default function Home() {
   const [map, setMap] = React.useState(null);
@@ -72,15 +76,10 @@ export default function Home() {
         onUnmount={onUnmount}
       >
         {/* Child components, such as markers, info windows, etc. */}
-        <PolylineF
-          path={FlightPath}
-          strokeColor={"#FC0303"}
-          strokeOpacity={1}
-          strokeWeight={1}
-        />
+        <PolylineF path={FlightPath} strokeColor={"#FC0303"} />
         <MarkerF
           position={{ lat: 50.937344, lng: -1.39639 }}
-          icon={google.maps.SymbolPath.FORWARD_CLOSED_ARROW}
+          icon={FORWARD_CLOSED_ARROW}
           rotation={270}
         />
         <></>
