@@ -70,8 +70,7 @@ export default function Home() {
     <>
       <dialog id="my_modal_2" className="modal">
         <div className="modal-box">
-          <h3 className="font-bold text-lg">Hello!</h3>
-          <p className="py-4">Press ESC key or click outside to close</p>
+          <img src="./assets/106.png" />
         </div>
         <form method="dialog" className="modal-backdrop">
           <button>close</button>
@@ -117,9 +116,12 @@ export default function Home() {
         </tbody>
       </table>
 
-      <button onClick={() => document.getElementById("my_modal_2").showModal()}>
+      <div
+        className="btn"
+        onClick={() => document.getElementById("my_modal_2").showModal()}
+      >
         Hello
-      </button>
+      </div>
     </>
   ) : (
     <></>
