@@ -76,7 +76,7 @@ export default function Home() {
         onUnmount={onUnmount}
       >
         {/* Child components, such as markers, info windows, etc. */}
-        <Polyline path={FlightPath} />
+        <Polyline path={FlightPath} strokeColor={"#fc0303"} />
         <Marker
           position={{ lat: 50.937344, lng: -1.39639 }}
           icon={google.maps.SymbolPath.FORWARD_CLOSED_ARROW}
