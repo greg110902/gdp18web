@@ -5,8 +5,8 @@ import React, { useEffect } from "react";
 import {
   GoogleMap,
   useJsApiLoader,
-  Polyline,
-  Marker,
+  PolylineF,
+  MarkerF,
 } from "@react-google-maps/api";
 
 export default function Home() {
@@ -76,13 +76,13 @@ export default function Home() {
         onUnmount={onUnmount}
       >
         {/* Child components, such as markers, info windows, etc. */}
-        <Polyline
+        <PolylineF
           path={FlightPath}
           strokeColor={"#FC0303"}
           strokeOpacity={1}
           strokeWeight={1}
         />
-        <Marker
+        <MarkerF
           position={{ lat: 50.937344, lng: -1.39639 }}
           icon={google.maps.SymbolPath.FORWARD_CLOSED_ARROW}
           rotation={270}
