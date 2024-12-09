@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React, { useEffect } from "react";
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import { GoogleMap, useJsApiLoader, Polyline } from "@react-google-maps/api";
 
 export default function Home() {
   const [map, setMap] = React.useState(null);
@@ -18,7 +18,7 @@ export default function Home() {
     const fetchData = async () => {
       const d = await fetch("https://telemetry-worker.gwgh1g21.workers.dev/");
 
-      setData(d.json());
+      setData(d.clone());
     };
     setWidth(window.screen.width);
 
@@ -53,9 +53,16 @@ export default function Home() {
     console.log(JSON.stringify(data));
   }
 
+  const FlightPath = [
+    { lat: 50.937308, lng: -1.396386 },
+    { lat: 50.936685, lng: -1.392481 },
+    { lat: 50.931809, lng: -1.391613 },
+    { lat: 50.931783, lng: -1.404183 },
+    { lat: 50.937344, lng: -1.39639 },
+  ];
+
   return isLoaded && data ? (
     <>
-      <div>{JSON.stringify(data)}</div>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
@@ -64,8 +71,30 @@ export default function Home() {
         onUnmount={onUnmount}
       >
         {/* Child components, such as markers, info windows, etc. */}
+        <Polyline path={FlightPath} />
         <></>
       </GoogleMap>
+      <table class="tg" className="flex align-middle justify-center">
+        <tbody>
+          <tr>
+            <td class="tg-c3ow">Airspeed (ms^-1)</td>
+            <td class="tg-c3ow">15.8</td>
+          </tr>
+
+          <tr>
+            <td class="tg-c3ow">Altitude (m)</td>
+            <td class="tg-c3ow">25</td>
+          </tr>
+          <tr>
+            <td class="tg-baqh">Heading</td>
+            <td class="tg-baqh">0</td>
+          </tr>
+          <tr>
+            <td class="tg-baqh">GPS Coordinates</td>
+            <td class="tg-baqh">50.93511631590241, </td>
+          </tr>
+        </tbody>
+      </table>
     </>
   ) : (
     <></>
