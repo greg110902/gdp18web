@@ -151,14 +151,14 @@ export default function Home() {
           >
             {connectedSats}
           </div>
-          <img
+          <svg
             src="https://gdp18web.pages.dev/radio-svgrepo-com.svg"
             className="justify-end"
             alt="gps"
-            color={`${connectedSats > 3 ? "green" : "red"}`}
+            fill={`${connectedSats > 3 ? "green" : "red"}`}
             width={25}
             height={25}
-          ></img>
+          ></svg>
         </div>
       </div>
     </>
