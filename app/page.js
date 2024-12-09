@@ -70,7 +70,7 @@ export default function Home() {
     <>
       <dialog id="my_modal_2" className="modal">
         <div className="modal-box">
-          <img src="./assets/106.png" />
+          <img src="./public/106.png" />
         </div>
         <form method="dialog" className="modal-backdrop">
           <button>close</button>
