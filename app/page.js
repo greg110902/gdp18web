@@ -93,6 +93,7 @@ export default function Home() {
           icon={{
             url: "/airplane-svgrepo-com.svg",
             scaledSize: new google.maps.Size(25, 25),
+            anchor: new google.maps.Point(12.5, 12.5),
             rotation: 0,
           }}
           
