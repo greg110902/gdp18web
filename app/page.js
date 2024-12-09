@@ -140,7 +140,7 @@ export default function Home() {
         </tbody>
       </table>
 
-      <div className="flex">
+      <div className="flex justify-end flex-row-reverse">
         <div>5</div>
         <img
           src="https://gdp18web.pages.dev/radio-svgrepo-com.svg"
