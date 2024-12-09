@@ -9,7 +9,6 @@ import {
   FORWARD_CLOSED_ARROW,
 } from "@react-google-maps/api";
 import pic from "./public/106.png";
-import { Image } from "next/image";
 
 export default function Home() {
   const [map, setMap] = React.useState(null);
