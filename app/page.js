@@ -94,9 +94,8 @@ export default function Home() {
             url: "/airplane-svgrepo-com.svg",
             scaledSize: new google.maps.Size(25, 25),
             anchor: new google.maps.Point(12.5, 12.5),
-            rotation: 0,
+            rotation: 41.45,
           }}
-          
         />
         <MarkerF
           position={{ lat: 50.931809, lng: -1.391613 }}
