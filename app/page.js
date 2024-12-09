@@ -65,7 +65,7 @@ export default function Home() {
     { lat: 50.936685, lng: -1.392481 },
     { lat: 50.931809, lng: -1.391613 },
     { lat: 50.931783, lng: -1.404183 },
-    { lat: 50.937344, lng: -1.39639 },
+    { lat: 50.936497, lng: -1.400531 },
   ];
 
   return isLoaded && data ? (
@@ -89,12 +89,12 @@ export default function Home() {
         {/* Child components, such as markers, info windows, etc. */}
         <PolylineF path={FlightPath} strokeColor={"#FC0303"} />
         <MarkerF
-          position={{ lat: 50.937344, lng: -1.39639 }}
+          position={{ lat: 50.936497, lng: -1.400531 }}
           icon={{
             url: "/airplane-svgrepo-com.svg",
             scaledSize: new google.maps.Size(25, 25),
-            anchor: new google.maps.Point(12.5, 12.5),
             rotation: 41.45,
+            anchor: new google.maps.Point(12.5, 12.5),
           }}
         />
         <MarkerF
