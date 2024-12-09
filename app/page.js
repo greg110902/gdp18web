@@ -134,7 +134,7 @@ export default function Home() {
           <tr className="border">
             <td class="tg-baqh">GPS Coordinates</td>
             <td class="tg-baqh" className="justify-center align-middle">
-              {"50.93511631590241, \n -1.39639"}
+              {"50.93511, \n -1.39639"}
             </td>
           </tr>
         </tbody>
