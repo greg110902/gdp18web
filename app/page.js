@@ -92,7 +92,7 @@ export default function Home() {
           position={{ lat: 50.937344, lng: -1.39639 }}
           icon={{
             url: "/airplane-svgrepo-com.svg",
-            scaledSize: new this.props.google.maps.Size(10, 10),
+            scaledSize: new google.maps.Size(10, 10),
           }}
           rotation={270}
         />
