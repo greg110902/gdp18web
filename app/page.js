@@ -91,7 +91,7 @@ export default function Home() {
         <PolylineF path={FlightPath} strokeColor={"#FC0303"} />
         <MarkerF
           position={{ lat: 50.937344, lng: -1.39639 }}
-          icon="/public/airplane-svgrepo-com.png"
+          icon="https://gdp18web.pages.dev/airplane-svgrepo-com.png"
           rotation={270}
           onClick={() => document.getElementById("my_modal_2").showModal()}
         />
