@@ -68,17 +68,6 @@ export default function Home() {
     { lat: 50.937344, lng: -1.39639 },
   ];
 
-  if (isLoaded) {
-    const icon = {
-      url: "https://gdp18web.pages.dev/airplane-svgrepo-com.png", // url
-      scaledSize: new google.maps.Size(10, 10), // scaled size
-      origin: new google.maps.Point(0, 0), // origin
-      anchor: new google.maps.Point(0, 0), // anchor
-    };
-  } else {
-    const icon = null;
-  }
-
   return isLoaded && data ? (
     <>
       <dialog id="my_modal_2" className="modal">
@@ -101,7 +90,11 @@ export default function Home() {
         <PolylineF path={FlightPath} strokeColor={"#FC0303"} />
         <MarkerF
           position={{ lat: 50.937344, lng: -1.39639 }}
-          icon={icon}
+          icon={{
+            url: require("https://gdp18web.pages.dev/airplane-svgrepo-com.svg")
+              .default,
+            scale: 5,
+          }}
           rotation={270}
           onClick={() => document.getElementById("my_modal_2").showModal()}
         />
