@@ -116,6 +116,10 @@ export default function Home() {
           </tr>
         </tbody>
       </table>
+
+      <button onClick={() => document.getElementById("my_modal_2").showModal()}>
+        Hello
+      </button>
     </>
   ) : (
     <></>
