@@ -7,7 +7,6 @@ import {
   PolylineF,
   MarkerF,
   FORWARD_CLOSED_ARROW,
-  Point,
 } from "@react-google-maps/api";
 import pic from "/public/106.png";
 import ac_marker from "/public/airplane-svgrepo-com.png";
@@ -69,12 +68,14 @@ export default function Home() {
     { lat: 50.937344, lng: -1.39639 },
   ];
 
-  const icon = {
-    url: "https://gdp18web.pages.dev/airplane-svgrepo-com.png", // url
-    scaledSize: new google.maps.Size(10, 10), // scaled size
-    origin: new google.maps.Point(0, 0), // origin
-    anchor: new google.maps.Point(0, 0), // anchor
-  };
+  if (isLoaded) {
+    const icon = {
+      url: "https://gdp18web.pages.dev/airplane-svgrepo-com.png", // url
+      scaledSize: new google.maps.Size(10, 10), // scaled size
+      origin: new google.maps.Point(0, 0), // origin
+      anchor: new google.maps.Point(0, 0), // anchor
+    };
+  }
 
   return isLoaded && data ? (
     <>
