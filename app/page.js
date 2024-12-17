@@ -102,7 +102,7 @@ export default function Home() {
         {/* Child components, such as markers, info windows, etc. */}
         <PolylineF path={FlightPath} strokeColor={"#FC0303"} />
         <MarkerF
-          position={{ lat: 50.936497, lng: -1.400531 }}
+          position={{ lat: data[lastItem]["lat"], lng: data[lastItem]["long"] }}
           icon={{
             url: "/airplane-svgrepo-com.svg",
             scaledSize: new google.maps.Size(25, 25),
