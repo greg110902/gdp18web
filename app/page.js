@@ -6,6 +6,7 @@ import React, { useEffect } from "react";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import {
   PolylineF,
+  Polyline,
   MarkerF,
   FORWARD_CLOSED_ARROW,
 } from "@react-google-maps/api";
@@ -41,7 +42,7 @@ export default function Home() {
       data.forEach((element) => {
         FlightPath.push({ lat: element["lat"], lng: element["long"] });
       });
-      const line = PolylineF({ path: FlightPath, strokeColor: "#FC0303" });
+      const line = Polyline({ path: FlightPath, strokeColor: "#FC0303" });
       line.setMap(map);
     }
   }, [data, width, dataLoaded]);
