@@ -28,19 +28,21 @@ export default function Home() {
       setDataLoaded(true);
     };
     setWidth(window.screen.width);
-
     fetchData();
-    setLastItem(data.length - 1);
-    var FlightPath = [];
-    data.forEach((element) => {
-      FlightPath.push({ lat: element["lat"], lng: element["long"] });
-    });
-    const line = new google.maps.Polyline({
-      path: FlightPath,
-      strokeColor: "#FC0303",
-    });
 
-    line.setMap(map);
+    if (dataLoaded) {
+      setLastItem(data.length - 1);
+      var FlightPath = [];
+      data.forEach((element) => {
+        FlightPath.push({ lat: element["lat"], lng: element["long"] });
+      });
+      const line = new google.maps.Polyline({
+        path: FlightPath,
+        strokeColor: "#FC0303",
+      });
+
+      line.setMap(map);
+    }
   }, [data, width, dataLoaded]);
 
   const containerStyle = {
