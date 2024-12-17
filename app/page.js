@@ -42,7 +42,7 @@ export default function Home() {
       data.forEach((element) => {
         FlightPath.push({ lat: element["lat"], lng: element["long"] });
       });
-      const line = Polyline({ path: FlightPath, strokeColor: "#FC0303" });
+      const line = new Polyline({ path: FlightPath, strokeColor: "#FC0303" });
       line.setMap(map);
     }
   }, [data, width, dataLoaded]);
