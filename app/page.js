@@ -75,7 +75,7 @@ export default function Home() {
   }
 
   if (isLoaded) {
-    map.center = map.getCenter();
+    map.setCenter(map.getCenter());
   }
 
   return isLoaded && dataLoaded ? (
