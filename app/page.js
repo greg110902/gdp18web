@@ -73,8 +73,13 @@ export default function Home() {
   if (dataLoaded) {
     console.log(data);
   }
-  setCenter(map.getCenter());
-  map.setCenter(center);
+
+  if (isLoaded) {
+    const mapID = document.getElementById("map");
+    mapID.addListener("center_changed", () => {
+      map.setCenter(mapID.getCenter());
+    });
+  }
 
   return isLoaded && dataLoaded ? (
     <>
@@ -95,6 +100,7 @@ export default function Home() {
       {dataLoaded ? <>{JSON.stringify(data[1])}</> : <></>}
 
       <GoogleMap
+        id="map"
         mapContainerStyle={containerStyle}
         center={center}
         zoom={14}
