@@ -12,6 +12,10 @@ export default function Home() {
   const [map, setGMap] = React.useState(null);
   const [width, setWidth] = React.useState();
   const [lastItem, setLastItem] = React.useState(0);
+  const [center, setCenter] = React.useState({
+    lat: 50.93511631590241,
+    lng: -1.3946559970412276,
+  });
   const [data, setData] = React.useState();
   const [dataLoaded, setDataLoaded] = React.useState(false);
   //const [height, setHeight] = React.useState()
@@ -28,9 +32,9 @@ export default function Home() {
       setDataLoaded(true);
     };
     setWidth(window.screen.width);
-    fetchData();
 
     setTimeout(() => {
+      fetchData();
       if (dataLoaded) {
         setLastItem(data.length - 1);
         var FlightPath = [];
@@ -52,11 +56,6 @@ export default function Home() {
     height: `${width * 0.75}px`,
   };
 
-  const center = {
-    lat: 50.93511631590241,
-    lng: -1.3946559970412276,
-  };
-
   const onLoad = React.useCallback(function callback(map) {
     // This is just an example of getting and using the map instance!!! don't just blindly copy!
     //const bounds = new window.google.maps.LatLngBounds(center);
@@ -74,6 +73,8 @@ export default function Home() {
   if (dataLoaded) {
     console.log(data);
   }
+  setCenter(map.getCenter());
+  map.setCenter(center);
 
   return isLoaded && dataLoaded ? (
     <>
