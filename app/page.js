@@ -90,7 +90,7 @@ export default function Home() {
         </form>
       </dialog>
 
-      {dataLoaded ? <>{data}</> : <></>}
+      {dataLoaded ? <>{JSON.stringify(data.clone())}</> : <></>}
 
       <GoogleMap
         mapContainerStyle={containerStyle}
