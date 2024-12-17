@@ -37,9 +37,12 @@ export default function Home() {
       fetchData();
     } else {
       setLastItem(data.length - 1);
+      var FlightPath;
       data.forEach((element) => {
         FlightPath.push({ lat: element["lat"], lng: element["long"] });
       });
+      const line = PolylineF({ path: FlightPath, strokeColor: "#FC0303" });
+      line.setMap(map);
     }
   }, [data, width, dataLoaded]);
 
@@ -64,8 +67,6 @@ export default function Home() {
   const onUnmount = React.useCallback(function callback(map) {
     setMap(null);
   }, []);
-
-  var FlightPath = [];
 
   var connectedSats = 5;
 
@@ -99,7 +100,6 @@ export default function Home() {
         onUnmount={onUnmount}
       >
         {/* Child components, such as markers, info windows, etc. */}
-        <PolylineF path={FlightPath} strokeColor={"#FC0303"} />
         <MarkerF
           position={{ lat: data[lastItem]["lat"], lng: data[lastItem]["long"] }}
           icon={{
