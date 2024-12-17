@@ -5,7 +5,6 @@ import Image from "next/image";
 import React, { useEffect } from "react";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import {
-  PolylineF,
   Polyline,
   MarkerF,
   FORWARD_CLOSED_ARROW,
