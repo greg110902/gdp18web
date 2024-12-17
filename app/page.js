@@ -14,7 +14,7 @@ import pic from "/public/106.png";
 import ac_marker from "/public/airplane-svgrepo-com.png";
 
 export default function Home() {
-  const [map, setGMap] = React.useState(null);
+  const [map, setMap] = React.useState(null);
   const [width, setWidth] = React.useState();
   const [lastItem, setLastItem] = React.useState(0);
   const [data, setData] = React.useState();
@@ -47,6 +47,8 @@ export default function Home() {
         strokeColor: "#FC0303",
         map: map,
       });
+
+      line.setMap(map);
     }
   }, [data, width, dataLoaded]);
 
@@ -65,11 +67,11 @@ export default function Home() {
     //const bounds = new window.google.maps.LatLngBounds(center);
     //map.fitBounds(bounds);
 
-    setGMap(map);
+    setMap(map);
   }, []);
 
   const onUnmount = React.useCallback(function callback(map) {
-    setGMap(null);
+    setMap(null);
   }, []);
 
   var connectedSats = 5;
