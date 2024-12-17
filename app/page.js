@@ -74,7 +74,7 @@ export default function Home() {
     console.log(data);
   }
 
-  if (isLoaded) {
+  if (isLoaded && map !== null) {
     map.setCenter(map.getCenter());
   }
 
