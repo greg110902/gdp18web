@@ -37,7 +37,7 @@ export default function Home() {
       fetchData();
     } else {
       setLastItem(data.length - 1);
-      var FlightPath;
+      var FlightPath = [];
       data.forEach((element) => {
         FlightPath.push({ lat: element["lat"], lng: element["long"] });
       });
