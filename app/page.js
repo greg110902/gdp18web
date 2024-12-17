@@ -15,7 +15,8 @@ import ac_marker from "/public/airplane-svgrepo-com.png";
 export default function Home() {
   const [map, setMap] = React.useState(null);
   const [width, setWidth] = React.useState();
-  const [data, setData] = React.useState(null);
+  const [lastItem, setLastItem] = React.useState(0);
+  const [data, setData] = React.useState();
   const [dataLoaded, setDataLoaded] = React.useState(false);
   //const [height, setHeight] = React.useState()
   const { isLoaded } = useJsApiLoader({
@@ -27,15 +28,17 @@ export default function Home() {
     const fetchData = async () => {
       const d = await fetch("https://telemetry-worker.gwgh1g21.workers.dev/");
 
-      setData(d.clone());
+      setData(await d.json());
       setDataLoaded(true);
     };
     setWidth(window.screen.width);
 
     if (!dataLoaded) {
       fetchData();
+    } else {
+      setLastItem(data.length - 1);
     }
-  });
+  }, [data, width, dataLoaded]);
 
   const containerStyle = {
     width: `${width}px`,
@@ -59,21 +62,19 @@ export default function Home() {
     setMap(null);
   }, []);
 
-  if (data !== null) {
-    console.log(JSON.stringify(data));
-  }
-
-  const FlightPath = [
-    { lat: 50.937308, lng: -1.396386 },
-    { lat: 50.936685, lng: -1.392481 },
-    { lat: 50.931809, lng: -1.391613 },
-    { lat: 50.931783, lng: -1.404183 },
-    { lat: 50.936497, lng: -1.400531 },
-  ];
+  const FlightPath = [];
 
   var connectedSats = 5;
 
-  return isLoaded && data ? (
+  if (dataLoaded) {
+    console.log(data);
+
+    data.forEach((element) => {
+      FlightPath.push({ lat: element["lat"], lng: element["long"] });
+    });
+  }
+
+  return isLoaded && dataLoaded ? (
     <>
       <Head>
         <title>GDP18 Website</title>
@@ -89,8 +90,7 @@ export default function Home() {
           <button>close</button>
         </form>
       </dialog>
-
-      {dataLoaded ? <>{JSON.stringify(data.clone())}</> : <></>}
+      {dataLoaded ? <>{JSON.stringify(data[1])}</> : <></>}
 
       <GoogleMap
         mapContainerStyle={containerStyle}
@@ -128,19 +128,19 @@ export default function Home() {
           <tr className="border">
             <td class="tg-c3ow">Altitude (m)</td>
             <td class="tg-c3ow" className="flex justify-center align-middle">
-              25
+              {data[lastItem]["alt"]}
             </td>
           </tr>
           <tr className="border">
             <td class="tg-baqh">Heading</td>
             <td class="tg-baqh" className="flex justify-center align-middle">
-              0
+              {data[lastItem]["head"]}
             </td>
           </tr>
           <tr className="border">
             <td class="tg-baqh">GPS Coordinates</td>
             <td class="tg-baqh" className="flex justify-center align-middle">
-              {"50.93511, \n -1.39639"}
+              {`${data[lastItem]["lat"]}, \n ${data[lastItem]["long"]}`}
             </td>
           </tr>
         </tbody>
