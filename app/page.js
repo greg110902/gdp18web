@@ -16,6 +16,7 @@ export default function Home() {
   const [map, setMap] = React.useState(null);
   const [width, setWidth] = React.useState();
   const [data, setData] = React.useState(null);
+  const [dataLoaded, setDataLoaded] = React.useState(false);
   //const [height, setHeight] = React.useState()
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -27,10 +28,11 @@ export default function Home() {
       const d = await fetch("https://telemetry-worker.gwgh1g21.workers.dev/");
 
       setData(d.clone());
+      setDataLoaded(true);
     };
     setWidth(window.screen.width);
 
-    if (!data || data === null) {
+    if (!dataLoaded) {
       fetchData();
     }
   });
@@ -87,6 +89,8 @@ export default function Home() {
           <button>close</button>
         </form>
       </dialog>
+
+      {dataLoaded ? <>{data}</> : <></>}
 
       <GoogleMap
         mapContainerStyle={containerStyle}
