@@ -16,6 +16,9 @@ export default function Home() {
     lat: 50.93511631590241,
     lng: -1.3946559970412276,
   });
+  const [currentPos, setCurrentPos] = React.useState()
+  const [alt, setAlt] = React.useState()
+  const [heading, setHeading] = React.useState()
   const [data, setData] = React.useState();
   const [dataLoaded, setDataLoaded] = React.useState(false);
   //const [height, setHeight] = React.useState()
@@ -47,6 +50,9 @@ export default function Home() {
         });
 
         line.setMap(map);
+        setAlt(data[lastItem]["alt"])
+        setCurrentPos({lat: data[lastItem]['lat'], long: data[lastItem['long']]})
+        setHeading(data[lastItem]['head'])
       }
     }, 1000);
   }, [data, width, dataLoaded]);
@@ -132,19 +138,19 @@ export default function Home() {
           <tr className="border">
             <td class="tg-c3ow">Altitude (m)</td>
             <td class="tg-c3ow" className="flex justify-center align-middle">
-              {data[lastItem]["alt"]}
+              {alt}
             </td>
           </tr>
           <tr className="border">
             <td class="tg-baqh">Heading</td>
             <td class="tg-baqh" className="flex justify-center align-middle">
-              {data[lastItem]["head"]}
+              {heading}
             </td>
           </tr>
           <tr className="border">
             <td class="tg-baqh">GPS Coordinates</td>
             <td class="tg-baqh" className="flex justify-center align-middle">
-              {`${data[lastItem]["lat"]}, \n ${data[lastItem]["long"]}`}
+              {`${currentPos.lat}, \n ${currentPos.longs}`}
             </td>
           </tr>
         </tbody>
