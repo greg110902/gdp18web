@@ -30,19 +30,21 @@ export default function Home() {
     setWidth(window.screen.width);
     fetchData();
 
-    if (dataLoaded) {
-      setLastItem(data.length - 1);
-      var FlightPath = [];
-      data.forEach((element) => {
-        FlightPath.push({ lat: element["lat"], lng: element["long"] });
-      });
-      const line = new google.maps.Polyline({
-        path: FlightPath,
-        strokeColor: "#FC0303",
-      });
+    setTimeout(() => {
+      if (dataLoaded) {
+        setLastItem(data.length - 1);
+        var FlightPath = [];
+        data.forEach((element) => {
+          FlightPath.push({ lat: element["lat"], lng: element["long"] });
+        });
+        const line = new google.maps.Polyline({
+          path: FlightPath,
+          strokeColor: "#FC0303",
+        });
 
-      line.setMap(map);
-    }
+        line.setMap(map);
+      }
+    }, 1000);
   }, [data, width, dataLoaded]);
 
   const containerStyle = {
