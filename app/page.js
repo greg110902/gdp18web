@@ -35,19 +35,11 @@ export default function Home() {
 
     if (!dataLoaded) {
       fetchData();
-      if (isLoaded) {
-        if (data.length > lastItem + 1) {
-          marker = new google.maps.Markerf({
-            position: {
-              lat: data[lastItem + 1]["lat"],
-              lng: data[lastItem + 1]["long"],
-            },
-            map: document.getElementById("map"),
-          });
-        }
-      }
     } else {
       setLastItem(data.length - 1);
+      data.forEach((element) => {
+        FlightPath.push({ lat: element["lat"], lng: element["long"] });
+      });
     }
   }, [data, width, dataLoaded]);
 
@@ -73,16 +65,12 @@ export default function Home() {
     setMap(null);
   }, []);
 
-  const FlightPath = [];
+  var FlightPath = [];
 
   var connectedSats = 5;
 
   if (dataLoaded) {
     console.log(data);
-
-    data.forEach((element) => {
-      FlightPath.push({ lat: element["lat"], lng: element["long"] });
-    });
   }
 
   return isLoaded && dataLoaded ? (
@@ -109,7 +97,6 @@ export default function Home() {
         zoom={14}
         onLoad={onLoad}
         onUnmount={onUnmount}
-        id="map"
       >
         {/* Child components, such as markers, info windows, etc. */}
         <PolylineF path={FlightPath} strokeColor={"#FC0303"} />
