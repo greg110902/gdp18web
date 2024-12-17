@@ -4,11 +4,7 @@ import Head from "next/head";
 import Image from "next/image";
 import React, { useEffect } from "react";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
-import {
-  Polyline,
-  MarkerF,
-  FORWARD_CLOSED_ARROW,
-} from "@react-google-maps/api";
+import { MarkerF, FORWARD_CLOSED_ARROW } from "@react-google-maps/api";
 import pic from "/public/106.png";
 import ac_marker from "/public/airplane-svgrepo-com.png";
 
@@ -41,7 +37,7 @@ export default function Home() {
       data.forEach((element) => {
         FlightPath.push({ lat: element["lat"], lng: element["long"] });
       });
-      const line = new Polyline({
+      const line = new google.maps.Polyline({
         path: FlightPath,
         strokeColor: "#FC0303",
       });
