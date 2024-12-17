@@ -42,8 +42,11 @@ export default function Home() {
       data.forEach((element) => {
         FlightPath.push({ lat: element["lat"], lng: element["long"] });
       });
-      const line = new Polyline({ path: FlightPath, strokeColor: "#FC0303" });
-      line.setMap(map);
+      const line = new Polyline({
+        path: FlightPath,
+        strokeColor: "#FC0303",
+        map: map,
+      });
     }
   }, [data, width, dataLoaded]);
 
