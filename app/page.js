@@ -75,10 +75,7 @@ export default function Home() {
   }
 
   if (isLoaded) {
-    const mapID = document.getElementById("map");
-    mapID.addListener("center_changed", () => {
-      map.setCenter(mapID.getCenter());
-    });
+    map.center = map.getCenter();
   }
 
   return isLoaded && dataLoaded ? (
