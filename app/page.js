@@ -13,7 +13,7 @@ import pic from "/public/106.png";
 import ac_marker from "/public/airplane-svgrepo-com.png";
 
 export default function Home() {
-  const [map, setMap] = React.useState(null);
+  const [map, setGMap] = React.useState(null);
   const [width, setWidth] = React.useState();
   const [lastItem, setLastItem] = React.useState(0);
   const [data, setData] = React.useState();
@@ -44,7 +44,6 @@ export default function Home() {
       const line = new Polyline({
         path: FlightPath,
         strokeColor: "#FC0303",
-        map: map,
       });
 
       line.setMap(map);
@@ -66,11 +65,11 @@ export default function Home() {
     //const bounds = new window.google.maps.LatLngBounds(center);
     //map.fitBounds(bounds);
 
-    setMap(map);
+    setGMap(map);
   }, []);
 
   const onUnmount = React.useCallback(function callback(map) {
-    setMap(null);
+    setGMap(null);
   }, []);
 
   var connectedSats = 5;
