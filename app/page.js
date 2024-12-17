@@ -16,9 +16,9 @@ export default function Home() {
     lat: 50.93511631590241,
     lng: -1.3946559970412276,
   });
-  const [currentPos, setCurrentPos] = React.useState()
-  const [alt, setAlt] = React.useState()
-  const [heading, setHeading] = React.useState()
+  const [currentPos, setCurrentPos] = React.useState();
+  const [alt, setAlt] = React.useState();
+  const [heading, setHeading] = React.useState();
   const [data, setData] = React.useState();
   const [dataLoaded, setDataLoaded] = React.useState(false);
   //const [height, setHeight] = React.useState()
@@ -50,9 +50,12 @@ export default function Home() {
         });
 
         line.setMap(map);
-        setAlt(data[lastItem]["alt"])
-        setCurrentPos({lat: data[lastItem]['lat'], long: data[lastItem['long']]})
-        setHeading(data[lastItem]['head'])
+        setAlt(data[lastItem]["alt"]);
+        setCurrentPos({
+          lat: data[lastItem]["lat"],
+          long: data[lastItem]["long"],
+        });
+        setHeading(data[lastItem]["head"]);
       }
     }, 1000);
   }, [data, width, dataLoaded]);
@@ -150,7 +153,7 @@ export default function Home() {
           <tr className="border">
             <td class="tg-baqh">GPS Coordinates</td>
             <td class="tg-baqh" className="flex justify-center align-middle">
-              {`${currentPos.lat}, \n ${currentPos.longs}`}
+              aids
             </td>
           </tr>
         </tbody>
