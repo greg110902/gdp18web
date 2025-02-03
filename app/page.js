@@ -19,6 +19,7 @@ export default function Home() {
   });
   const [currentPos, setCurrentPos] = React.useState();
   const [alt, setAlt] = React.useState();
+  const [speed, setSpeed] = React.useState();
   const [heading, setHeading] = React.useState();
   const [data, setData] = React.useState();
   const [dataLoaded, setDataLoaded] = React.useState(false);
@@ -27,7 +28,7 @@ export default function Home() {
     id: "google-map-script",
     googleMapsApiKey: "AIzaSyAs91rb9-ScOhp1A6CyZBbpR4LrUdtzeGo",
   });
-
+  const R = 6371e3;
   useEffect(() => {
     const fetchData = async () => {
       const d = await fetch("https://telemetry-worker.gwgh1g21.workers.dev/");
@@ -58,6 +59,27 @@ export default function Home() {
         });
         setHeading(data[lastItem]["head"]);
       }
+
+      var lat1 = (data[lastItem - 1]["lat"] * Math.PI) / 180;
+      var lat2 = (data[lastItem]["lat"] * Math.PI) / 180;
+      var long1 = (data[lastItem - 1]["long"] * Math.PI) / 180;
+      var long2 = (data[lastItem]["long"] * Math.PI) / 180;
+
+      var d_phi = lat2 - lat1;
+      var d_lambda = long2 - long1;
+
+      var a =
+        Math.sin(d_phi / 2) * Math.sin(d_phi / 2) +
+        Math.cos(lat1) *
+          Math.cos(lat2) *
+          Math.sin(d_lambda / 2) *
+          Math.sin(d_lambda / 2);
+
+      var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+      setSpeed(
+        (1000 * R * c) / (data[lastItem]["time"] - data[lastItem - 1]["time"])
+      );
     }, 1000);
   }, [data, width, dataLoaded]);
 
@@ -139,7 +161,7 @@ export default function Home() {
           <tr className="border">
             <td class="tg-c3ow">Airspeed (ms^-1)</td>
             <td class="tg-c3ow" className="flex justify-center align-middle">
-              15.8
+              {dataLoaded ? speed : <></>}
             </td>
           </tr>
 
