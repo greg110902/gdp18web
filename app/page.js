@@ -157,7 +157,7 @@ export default function Home() {
           <tr className="border">
             <td class="tg-baqh">GPS Coordinates</td>
             <td class="tg-baqh" className="flex justify-center align-middle">
-              {lat}, {long}
+              {currentPos.lat}, {currentPos.long}
             </td>
           </tr>
         </tbody>
