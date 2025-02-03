@@ -7,6 +7,7 @@ import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import { MarkerF, FORWARD_CLOSED_ARROW } from "@react-google-maps/api";
 import pic from "/public/106.png";
 import ac_marker from "/public/airplane-svgrepo-com.png";
+import { redirect } from "next/navigation";
 
 export default function Home() {
   const [map, setGMap] = React.useState(null);
@@ -86,6 +87,9 @@ export default function Home() {
   if (isLoaded && map !== null) {
     map.setCenter(map.getCenter());
   }
+  if (isLoaded && dataLoaded && data == null) {
+    redirect("/flight-not-initiated", "replace");
+  }
 
   return isLoaded && dataLoaded ? (
     <>
@@ -153,7 +157,7 @@ export default function Home() {
           <tr className="border">
             <td class="tg-baqh">GPS Coordinates</td>
             <td class="tg-baqh" className="flex justify-center align-middle">
-              aids
+              NotImplemented
             </td>
           </tr>
         </tbody>
