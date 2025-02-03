@@ -86,13 +86,13 @@ export default function Home() {
 
   if (isLoaded && map !== null) {
     map.setCenter(map.getCenter());
+    console.log(currentPos);
   }
   if (isLoaded && dataLoaded && data == null) {
     redirect("/flight-not-initiated", "replace");
   }
 
   return isLoaded && dataLoaded ? (
-    console.log(currentPos);
     <>
       <Head>
         <title>GDP18 Website</title>
