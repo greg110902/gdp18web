@@ -92,6 +92,7 @@ export default function Home() {
   }
 
   return isLoaded && dataLoaded ? (
+    console.log(currentPos);
     <>
       <Head>
         <title>GDP18 Website</title>
