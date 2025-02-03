@@ -86,7 +86,7 @@ export default function Home() {
 
   if (isLoaded && map !== null) {
     map.setCenter(map.getCenter());
-    console.log(currentPos);
+    console.log(JSON.stringify(currentPos));
   }
   if (isLoaded && dataLoaded && data == null) {
     redirect("/flight-not-initiated", "replace");
