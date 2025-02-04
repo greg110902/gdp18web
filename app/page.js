@@ -68,6 +68,11 @@ export default function Home() {
       var d_phi = lat2 - lat1;
       var d_lambda = long2 - long1;
 
+      console.log(lat1)
+      console.log(lat2)
+      console.log(long1)
+      console.log(long2)
+
       var a =
         Math.sin(d_phi / 2) * Math.sin(d_phi / 2) +
         Math.cos(lat1) *
