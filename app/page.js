@@ -83,7 +83,10 @@ export default function Home() {
       var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
       setSpeed(
-        (1000 * R * c) / (data[lastItem]["time"] - data[lastItem - 1]["time"])
+        (
+          (1000 * R * c) /
+          (data[lastItem]["time"] - data[lastItem - 1]["time"])
+        ).toFixed(2)
       );
     }, 1000);
   }, [data, width, dataLoaded]);
@@ -166,7 +169,7 @@ export default function Home() {
           <tr className="border">
             <td class="tg-c3ow">Airspeed (ms^-1)</td>
             <td class="tg-c3ow" className="flex justify-center align-middle">
-              {dataLoaded ? speed.toFixed(2) : <></>}
+              {dataLoaded ? speed : <></>}
             </td>
           </tr>
 
