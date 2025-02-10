@@ -5,7 +5,9 @@ import { useRouter } from "next/navigation";
 export default function Home() {
   const id = 1;
 
-  location.replace(`/map/${id}`);
+  const router = useRouter();
+
+  router.push(`/map/${id}`);
 
   return <></>;
 }
