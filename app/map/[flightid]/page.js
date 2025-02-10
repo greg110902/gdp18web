@@ -8,8 +8,9 @@ import { MarkerF, FORWARD_CLOSED_ARROW } from "@react-google-maps/api";
 import pic from "/public/106.png";
 import ac_marker from "/public/airplane-svgrepo-com.png";
 import { redirect } from "next/navigation";
+import FlightSelector from "@/app/components/flight_selector";
 
-export default function Home() {
+export default function Home({ params }) {
   const [map, setGMap] = React.useState(null);
   const [width, setWidth] = React.useState();
   const [lastItem, setLastItem] = React.useState(0);
@@ -134,7 +135,7 @@ export default function Home() {
         </form>
       </dialog>
       {dataLoaded ? <>{JSON.stringify(data[1])}</> : <></>}
-
+        <FlightSelector ultimatePoint={data[lastItem]} penultimatePoint={data[lastItem-1]} params={params}></FlightSelector>
       <GoogleMap
         id="map"
         mapContainerStyle={containerStyle}
