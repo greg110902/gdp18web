@@ -6,8 +6,10 @@ export default function FlightSelector(
   penultimatePoint,
   flightid
 ) {
-  const [flightID, setFlightID] = useState(flightid);
+  const [flightID, setFlightID] = useState();
   const router = useRouter();
+
+  setFlightID(flightid);
 
   console.log(`flightID ${flightid}`);
 
