@@ -32,7 +32,7 @@ export default function Home() {
   });
   const R = 6371e3;
   const { flightid } = useParams();
-  console.loc(flightid);
+  console.log(flightid);
   useEffect(() => {
     const fetchData = async () => {
       const d = await fetch("https://telemetry-worker.gwgh1g21.workers.dev/");
