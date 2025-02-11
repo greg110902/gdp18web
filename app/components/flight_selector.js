@@ -9,6 +9,8 @@ export default function FlightSelector(
   const [flightID, setFlightID] = useState(flightid);
   const router = useRouter();
 
+  console.log(`flightID ${flightid}`);
+
   function incrementID() {
     setFlightID(flightID + 1);
     router.push(`/maps/${flightID}`);
