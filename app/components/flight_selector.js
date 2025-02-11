@@ -9,6 +9,11 @@ export default function FlightSelector(
   const [flightID, setFlightID] = useState();
   const router = useRouter();
 
+  useEffect(() => {
+    
+  })
+  if (flightID)
+
   setFlightID(flightid);
 
   console.log(`flightID ${flightid}`);

@@ -33,6 +33,7 @@ export default function Home() {
   const R = 6371e3;
   const { flightid } = useParams();
   console.log(flightid);
+  console.log(`Converted ${Number(flightid[0])}`);
   useEffect(() => {
     const fetchData = async () => {
       const d = await fetch("https://telemetry-worker.gwgh1g21.workers.dev/");
