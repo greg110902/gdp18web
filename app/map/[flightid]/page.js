@@ -63,7 +63,8 @@ export default function Home({ params }) {
 
       console.log("CALCULATING LATS")
 
-      var lat1 = (data[lastItem - 1]["lat"] * Math.PI) / 180;
+      if (dataLoaded) {
+        var lat1 = (data[lastItem - 1]["lat"] * Math.PI) / 180;
       var lat2 = (data[lastItem]["lat"] * Math.PI) / 180;
       var long1 = (data[lastItem - 1]["long"] * Math.PI) / 180;
       var long2 = (data[lastItem]["long"] * Math.PI) / 180;
@@ -88,6 +89,9 @@ export default function Home({ params }) {
           (data[lastItem]["time"] - data[lastItem - 1]["time"])
         ).toFixed(2)
       );
+      }
+
+      
     }, 1000);
   }, [data, width, dataLoaded]);
 
