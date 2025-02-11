@@ -5,12 +5,13 @@ import Image from "next/image";
 import React, { useEffect } from "react";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import { MarkerF, FORWARD_CLOSED_ARROW } from "@react-google-maps/api";
+import { useParams } from "next/navigation";
 import pic from "/public/106.png";
 import ac_marker from "/public/airplane-svgrepo-com.png";
 import { redirect } from "next/navigation";
 import FlightSelector from "@/app/components/flight_selector";
 
-export default function Home({ params }) {
+export default function Home() {
   const [map, setGMap] = React.useState(null);
   const [width, setWidth] = React.useState();
   const [lastItem, setLastItem] = React.useState(0);
@@ -30,6 +31,8 @@ export default function Home({ params }) {
     googleMapsApiKey: "AIzaSyAs91rb9-ScOhp1A6CyZBbpR4LrUdtzeGo",
   });
   const R = 6371e3;
+  const { flightid } = useParams();
+  console.loc(flightid);
   useEffect(() => {
     const fetchData = async () => {
       const d = await fetch("https://telemetry-worker.gwgh1g21.workers.dev/");
@@ -61,37 +64,35 @@ export default function Home({ params }) {
         setHeading(data[lastItem]["head"]);
       }
 
-      console.log("CALCULATING LATS")
+      console.log("CALCULATING LATS");
 
       if (dataLoaded) {
         var lat1 = (data[lastItem - 1]["lat"] * Math.PI) / 180;
-      var lat2 = (data[lastItem]["lat"] * Math.PI) / 180;
-      var long1 = (data[lastItem - 1]["long"] * Math.PI) / 180;
-      var long2 = (data[lastItem]["long"] * Math.PI) / 180;
+        var lat2 = (data[lastItem]["lat"] * Math.PI) / 180;
+        var long1 = (data[lastItem - 1]["long"] * Math.PI) / 180;
+        var long2 = (data[lastItem]["long"] * Math.PI) / 180;
 
-      console.log(data[lastItem - 1]["lat"])
+        console.log(data[lastItem - 1]["lat"]);
 
-      var d_phi = lat2 - lat1;
-      var d_lambda = long2 - long1;
+        var d_phi = lat2 - lat1;
+        var d_lambda = long2 - long1;
 
-      var a =
-        Math.sin(d_phi / 2) * Math.sin(d_phi / 2) +
-        Math.cos(lat1) *
-          Math.cos(lat2) *
-          Math.sin(d_lambda / 2) *
-          Math.sin(d_lambda / 2);
+        var a =
+          Math.sin(d_phi / 2) * Math.sin(d_phi / 2) +
+          Math.cos(lat1) *
+            Math.cos(lat2) *
+            Math.sin(d_lambda / 2) *
+            Math.sin(d_lambda / 2);
 
-      var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
-      setSpeed(
-        (
-          (1000 * R * c) /
-          (data[lastItem]["time"] - data[lastItem - 1]["time"])
-        ).toFixed(2)
-      );
+        setSpeed(
+          (
+            (1000 * R * c) /
+            (data[lastItem]["time"] - data[lastItem - 1]["time"])
+          ).toFixed(2)
+        );
       }
-
-      
     }, 1000);
   }, [data, width, dataLoaded]);
 
@@ -143,7 +144,11 @@ export default function Home({ params }) {
         </form>
       </dialog>
       {dataLoaded ? <>{JSON.stringify(data[1])}</> : <></>}
-      <FlightSelector ultimatePoint={data[lastItem]} penultimatePoint={data[lastItem-1]} params={params}></FlightSelector>
+      <FlightSelector
+        ultimatePoint={data[lastItem]}
+        penultimatePoint={data[lastItem - 1]}
+        params={params}
+      ></FlightSelector>
       <GoogleMap
         id="map"
         mapContainerStyle={containerStyle}
