@@ -149,7 +149,7 @@ export default function Home() {
       <FlightSelector
         ultimatePoint={data[lastItem]}
         penultimatePoint={data[lastItem - 1]}
-        flightid={parseInt(flightid[0])}
+        flightid={Number(flightid[0])}
       ></FlightSelector>
       <GoogleMap
         id="map"
