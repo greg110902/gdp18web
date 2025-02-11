@@ -46,5 +46,7 @@ export default function FlightSelector(
         </button>
       </div>
     );
+  } else {
+    return <></>;
   }
 }
