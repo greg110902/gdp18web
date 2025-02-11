@@ -20,11 +20,11 @@ export default function FlightSelector(
 
     function incrementID() {
       setFlightID(flightID + 1);
-      router.push(`/maps/${flightID}`);
+      //router.push(`/maps/${flightID}`);
     }
     function decrementID() {
       setFlightID(flightID - 1);
-      router.push(`/maps/${flightID}`);
+      //router.push(`/maps/${flightID}`);
     }
 
     var lat1 = (penultimatePoint["lat"] * Math.PI) / 180;
