@@ -66,6 +66,8 @@ export default function Home({ params }) {
       var long1 = (data[lastItem - 1]["long"] * Math.PI) / 180;
       var long2 = (data[lastItem]["long"] * Math.PI) / 180;
 
+      console.log(data[lastItem - 1]["lat"])
+
       var d_phi = lat2 - lat1;
       var d_lambda = long2 - long1;
 
