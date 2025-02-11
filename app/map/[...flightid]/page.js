@@ -123,9 +123,9 @@ export default function Home() {
     map.setCenter(map.getCenter());
     console.log(JSON.stringify(currentPos));
   }
-  if (isLoaded && dataLoaded && data == null) {
-    redirect("/flight-not-initiated", "replace");
-  }
+  //if (isLoaded && dataLoaded && data == null) {
+  //redirect("/flight-not-initiated", "replace");
+  //}
 
   return isLoaded && dataLoaded ? (
     <>
