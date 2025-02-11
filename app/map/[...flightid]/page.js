@@ -127,6 +127,8 @@ export default function Home() {
   //redirect("/flight-not-initiated", "replace");
   //}
 
+  console.log(`FlightID before component ${flightid[0]}`);
+
   return isLoaded && dataLoaded ? (
     <>
       <Head>
