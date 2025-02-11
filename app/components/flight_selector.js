@@ -4,9 +4,9 @@ import { useRouter } from "next/navigation";
 export default function FlightSelector(
   ultimatePoint,
   penultimatePoint,
-  { params }
+  flightid
 ) {
-  const [flightID, setFlightID] = useState(params["flight_id"]);
+  const [flightID, setFlightID] = useState(flightid);
   const router = useRouter();
 
   function incrementID() {

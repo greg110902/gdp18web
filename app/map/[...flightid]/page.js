@@ -144,7 +144,11 @@ export default function Home() {
         </form>
       </dialog>
       {dataLoaded ? <>{JSON.stringify(data[1])}</> : <></>}
-      
+      <FlightSelector
+        ultimatePoint={data[lastItem]}
+        penultimatePoint={data[lastItem - 1]}
+        flightid={parseInt(flightid[0])}
+      ></FlightSelector>
       <GoogleMap
         id="map"
         mapContainerStyle={containerStyle}
