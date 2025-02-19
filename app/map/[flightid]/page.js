@@ -33,7 +33,6 @@ export default function Home() {
   const R = 6371e3;
   const { flightid } = useParams();
   console.log(flightid);
-  setFlightID(flightid);
   console.log(`Converted ${Number(flightid[0])}`);
   useEffect(() => {
     const fetchData = async () => {
@@ -149,11 +148,11 @@ export default function Home() {
       </dialog>
       {dataLoaded ? <>{JSON.stringify(data[1])}</> : <></>}
       <div className="flex">
-        <button className="btn" onClick={setFlightID(FlightID - 1)}>
+        <button className="btn" onClick={() => setFlightID(FlightID - 1)}>
           {"<"}
         </button>
         <div>Flight {FlightID}</div>
-        <button className="btn" onClick={setFlightID(FlightID + 1)}>
+        <button className="btn" onClick={() => setFlightID(FlightID + 1)}>
           {">"}
         </button>
       </div>
