@@ -24,6 +24,7 @@ export default function Home() {
   const [heading, setHeading] = React.useState();
   const [data, setData] = React.useState();
   const [dataLoaded, setDataLoaded] = React.useState(false);
+  const [FlightID, setFlightID] = React.useState(0);
   //const [height, setHeight] = React.useState()
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -32,6 +33,7 @@ export default function Home() {
   const R = 6371e3;
   const { flightid } = useParams();
   console.log(flightid);
+  setFlightID(flightid);
   console.log(`Converted ${Number(flightid[0])}`);
   useEffect(() => {
     const fetchData = async () => {
@@ -146,6 +148,15 @@ export default function Home() {
         </form>
       </dialog>
       {dataLoaded ? <>{JSON.stringify(data[1])}</> : <></>}
+      <div className="flex">
+        <button className="btn" onClick={setFlightID(FlightID - 1)}>
+          {"<"}
+        </button>
+        <div>Flight {FlightID}</div>
+        <button className="btn" onClick={setFlightID(FlightID + 1)}>
+          {">"}
+        </button>
+      </div>
       <GoogleMap
         id="map"
         mapContainerStyle={containerStyle}
