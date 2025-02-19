@@ -102,6 +102,15 @@ export default function Home() {
     height: `${width * 0.75}px`,
   };
 
+  function increment_flightid() {
+    setFlightID(FlightID + 1);
+    redirect(`/map/${FlightID}`);
+  }
+  function decrement_flightid() {
+    setFlightID(FlightID - 1);
+    redirect(`/map/${FlightID}`);
+  }
+
   const onLoad = React.useCallback(function callback(map) {
     // This is just an example of getting and using the map instance!!! don't just blindly copy!
     //const bounds = new window.google.maps.LatLngBounds(center);
@@ -148,11 +157,11 @@ export default function Home() {
       </dialog>
       {dataLoaded ? <>{JSON.stringify(data[1])}</> : <></>}
       <div className="flex">
-        <button className="btn" onClick={() => setFlightID(FlightID - 1)}>
+        <button className="btn" onClick={() => decrement_flightid()}>
           {"<"}
         </button>
         <div>Flight {FlightID}</div>
-        <button className="btn" onClick={() => setFlightID(FlightID + 1)}>
+        <button className="btn" onClick={() => increment_flightid()}>
           {">"}
         </button>
       </div>
