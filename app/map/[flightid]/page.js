@@ -155,7 +155,6 @@ export default function Home() {
           <button>close</button>
         </form>
       </dialog>
-      {dataLoaded ? <>{JSON.stringify(data[1])}</> : <></>}
       <div className="flex">
         <button className="btn" onClick={() => decrement_flightid()}>
           {"<"}
