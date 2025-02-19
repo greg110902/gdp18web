@@ -8,7 +8,7 @@ import { MarkerF, FORWARD_CLOSED_ARROW } from "@react-google-maps/api";
 import { useParams } from "next/navigation";
 import pic from "/public/106.png";
 import ac_marker from "/public/airplane-svgrepo-com.png";
-import { redirect } from "next/navigation";
+import useRouter from "next/navigation";
 
 export default function Home() {
   const [map, setGMap] = React.useState(null);
@@ -103,12 +103,14 @@ export default function Home() {
   };
 
   function increment_flightid() {
+    const router = useRouter();
     setFlightID(FlightID + 1);
-    redirect(`/map/${FlightID}`, 'replace');
+    router.push(`/map/${FlightID}`);
   }
   function decrement_flightid() {
+    const router = useRouter();
     setFlightID(FlightID - 1);
-    redirect(`/map/${FlightID}`, 'replace');
+    router.push(`/map/${FlightID}`);
   }
 
   const onLoad = React.useCallback(function callback(map) {
