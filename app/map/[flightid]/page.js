@@ -104,11 +104,11 @@ export default function Home() {
 
   function increment_flightid() {
     setFlightID(FlightID + 1);
-    redirect(`/map/${FlightID}`);
+    redirect(`/map/${FlightID}`, 'replace');
   }
   function decrement_flightid() {
     setFlightID(FlightID - 1);
-    redirect(`/map/${FlightID}`);
+    redirect(`/map/${FlightID}`, 'replace');
   }
 
   const onLoad = React.useCallback(function callback(map) {
