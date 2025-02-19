@@ -9,7 +9,6 @@ import { useParams } from "next/navigation";
 import pic from "/public/106.png";
 import ac_marker from "/public/airplane-svgrepo-com.png";
 import { redirect } from "next/navigation";
-import FlightSelector from "@/app/components/flight_selector";
 
 export default function Home() {
   const [map, setGMap] = React.useState(null);
@@ -147,11 +146,6 @@ export default function Home() {
         </form>
       </dialog>
       {dataLoaded ? <>{JSON.stringify(data[1])}</> : <></>}
-      <FlightSelector
-        ultimatePoint={data[lastItem]}
-        penultimatePoint={data[lastItem - 1]}
-        flightid={Number(flightid[0])}
-      ></FlightSelector>
       <GoogleMap
         id="map"
         mapContainerStyle={containerStyle}
