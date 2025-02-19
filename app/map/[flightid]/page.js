@@ -32,6 +32,8 @@ export default function Home() {
   });
   const R = 6371e3;
   const { flightid } = useParams();
+  const router = useRouter();
+
   console.log(flightid);
   console.log(`Converted ${Number(flightid[0])}`);
   useEffect(() => {
@@ -102,13 +104,11 @@ export default function Home() {
     height: `${width * 0.75}px`,
   };
 
-  function increment_flightid() {
-    const router = useRouter();
+  function increment_flightid(router) {
     setFlightID(FlightID + 1);
     router.push(`/map/${FlightID}`);
   }
-  function decrement_flightid() {
-    const router = useRouter();
+  function decrement_flightid(router) {
     setFlightID(FlightID - 1);
     router.push(`/map/${FlightID}`);
   }
@@ -158,11 +158,11 @@ export default function Home() {
         </form>
       </dialog>
       <div className="flex">
-        <button className="btn" onClick={() => decrement_flightid()}>
+        <button className="btn" onClick={() => decrement_flightid(router)}>
           {"<"}
         </button>
         <div>Flight {FlightID}</div>
-        <button className="btn" onClick={() => increment_flightid()}>
+        <button className="btn" onClick={() => increment_flightid(router)}>
           {">"}
         </button>
       </div>
