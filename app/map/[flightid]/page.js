@@ -32,7 +32,6 @@ export default function Home() {
   });
   const R = 6371e3;
   const { flightid } = useParams();
-  const router = useRouter();
 
   console.log(flightid);
   console.log(`Converted ${Number(flightid[0])}`);
@@ -104,15 +103,6 @@ export default function Home() {
     height: `${width * 0.75}px`,
   };
 
-  function increment_flightid(router) {
-    setFlightID(FlightID + 1);
-    router.push(`/map/${FlightID}`);
-  }
-  function decrement_flightid(router) {
-    setFlightID(FlightID - 1);
-    router.push(`/map/${FlightID}`);
-  }
-
   const onLoad = React.useCallback(function callback(map) {
     // This is just an example of getting and using the map instance!!! don't just blindly copy!
     //const bounds = new window.google.maps.LatLngBounds(center);
@@ -158,13 +148,9 @@ export default function Home() {
         </form>
       </dialog>
       <div className="flex">
-        <button className="btn" onClick={() => decrement_flightid(router)}>
-          {"<"}
-        </button>
+        <button className="btn">{"<"}</button>
         <div>Flight {FlightID}</div>
-        <button className="btn" onClick={() => increment_flightid(router)}>
-          {">"}
-        </button>
+        <button className="btn">{">"}</button>
       </div>
       <GoogleMap
         id="map"
