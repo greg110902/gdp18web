@@ -180,7 +180,7 @@ export default function Home() {
           }}
         />
         {ims.forEach((loc) => {
-          console.log(`LOC ${loc}`);
+          console.log(`LOC ${loc}, lat ${loc.lat} long ${loc.long}`);
           return (
             <MarkerF
               position={{ lat: loc.lat, lng: loc.long }}
