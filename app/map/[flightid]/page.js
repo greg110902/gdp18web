@@ -24,6 +24,7 @@ export default function Home() {
   const [heading, setHeading] = React.useState();
   const [data, setData] = React.useState();
   const [ims, setIms] = React.useState();
+  const [imsLoaded, setImsLoaded] = React.useState(false);
   const [dataLoaded, setDataLoaded] = React.useState(false);
   const [FlightID, setFlightID] = React.useState(0);
   //const [height, setHeight] = React.useState()
@@ -47,11 +48,13 @@ export default function Home() {
     const fetchIms = async () => {
       const data = await fetch("https://img-worker.gwgh1g21.workers.dev/");
       setIms(await data.json());
+      setImsLoaded(true);
     };
     setWidth(window.screen.width);
 
     setTimeout(() => {
       fetchData();
+      fetchIms();
       if (dataLoaded) {
         setLastItem(data.length - 1);
         var FlightPath = [];
