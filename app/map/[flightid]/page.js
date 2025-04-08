@@ -20,10 +20,10 @@ export default function Home() {
   });
   const [currentPos, setCurrentPos] = React.useState();
   const [alt, setAlt] = React.useState();
-  const [imList, setImList] = React.useState();
   const [speed, setSpeed] = React.useState();
   const [heading, setHeading] = React.useState();
   const [data, setData] = React.useState();
+  const [ims, setIms] = React.useState();
   const [dataLoaded, setDataLoaded] = React.useState(false);
   const [FlightID, setFlightID] = React.useState(0);
   //const [height, setHeight] = React.useState()
@@ -46,13 +46,12 @@ export default function Home() {
 
     const fetchIms = async () => {
       const data = await fetch("https://img-worker.gwgh1g21.workers.dev/");
-      setImList(await data.json());
+      setIms(await data.json());
     };
     setWidth(window.screen.width);
 
     setTimeout(() => {
       fetchData();
-      fetchIms();
       if (dataLoaded) {
         setLastItem(data.length - 1);
         var FlightPath = [];
@@ -87,7 +86,7 @@ export default function Home() {
         var d_lambda = long2 - long1;
 
         var a =
-          xc * Math.sin(d_phi / 2) * Math.sin(d_phi / 2) +
+          Math.sin(d_phi / 2) * Math.sin(d_phi / 2) +
           Math.cos(lat1) *
             Math.cos(lat2) *
             Math.sin(d_lambda / 2) *
@@ -177,14 +176,18 @@ export default function Home() {
             anchor: new google.maps.Point(12.5, 12.5),
           }}
         />
-        {imList.forEach((loc) => {
+        {ims.forEach((loc) => {
           return (
             <MarkerF
-              position={{ lat: loc.lat, lng: loc.l0ng }}
+              position={{ lat: loc.lat, lng: loc.long }}
               onClick={() => document.getElementById("my_modal_2").showModal()}
             />
           );
         })}
+        <MarkerF
+          position={{ lat: 50.931809, lng: -1.391613 }}
+          onClick={() => document.getElementById("my_modal_2").showModal()}
+        />
         <></>
       </GoogleMap>
       <table class="tg" className="flex align-middle justify-center">
