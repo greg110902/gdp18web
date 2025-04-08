@@ -182,17 +182,17 @@ export default function Home() {
         {ims.forEach((loc) => {
           console.log(`LOC ${loc}, lat ${loc.lat} long ${loc.long}`);
           return (
-            <MarkerF
-              position={{ lat: loc.lat, lng: loc.long }}
-              onClick={() => document.getElementById("my_modal_2").showModal()}
-            />
+            <>
+              <MarkerF
+                position={{ lat: loc.lat, lng: loc.long }}
+                onClick={() =>
+                  document.getElementById("my_modal_2").showModal()
+                }
+              />
+              <></>
+            </>
           );
         })}
-        <MarkerF
-          position={{ lat: 50.931809, lng: -1.391613 }}
-          onClick={() => document.getElementById("my_modal_2").showModal()}
-        />
-        <></>
       </GoogleMap>
       <table class="tg" className="flex align-middle justify-center">
         <tbody className="text-black border shadow my-5 P-2">
