@@ -140,6 +140,10 @@ export default function Home() {
 
   console.log(`FlightID before component ${flightid[0]}`);
 
+  ims.forEach(loc => {
+    let marker = new MarkerF(position={ lat: loc.lat, lng: loc.long })
+  })
+
   return isLoaded && dataLoaded ? (
     <>
       <Head>
