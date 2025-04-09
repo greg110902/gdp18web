@@ -169,7 +169,6 @@ export default function Home() {
         onLoad={onLoad}
         onUnmount={onUnmount}
       >
-        {/* Child components, such as markers, info windows, etc. */}
         <MarkerF
           position={{ lat: data[lastItem]["lat"], lng: data[lastItem]["long"] }}
           icon={{
@@ -181,17 +180,7 @@ export default function Home() {
         />
         {ims.forEach((loc) => {
           console.log(`LOC ${loc}, lat ${loc.lat} long ${loc.long}`);
-          return (
-            <>
-              <MarkerF
-                position={{ lat: loc.lat, lng: loc.long }}
-                onClick={() =>
-                  document.getElementById("my_modal_2").showModal()
-                }
-              />
-              <></>
-            </>
-          );
+          return <MarkerF position={{ lat: loc.lat, lng: loc.long }} />;
         })}
       </GoogleMap>
       <table class="tg" className="flex align-middle justify-center">
