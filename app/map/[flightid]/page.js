@@ -138,6 +138,10 @@ export default function Home() {
   //redirect("/flight-not-initiated", "replace");
   //}
 
+  if (imsLoaded) {
+  ims.forEach(loc => {
+    let marker = new google.maps.MarkerF(position={ lat: loc.lat, lng: loc.long })
+  })}
   console.log(`FlightID before component ${flightid[0]}`);
 
   return isLoaded && dataLoaded ? (
@@ -179,7 +183,7 @@ export default function Home() {
           }}
         />
         {ims.forEach((loc) => {
-          <MarkerF position={{ lat: loc.lat, lng: loc.long }} map={map} />;
+          <MarkerF position={{ lat: loc.lat, lng: loc.long }} />;
         })}
       </GoogleMap>
       <table class="tg" className="flex align-middle justify-center">
