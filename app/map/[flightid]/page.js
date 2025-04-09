@@ -140,7 +140,7 @@ export default function Home() {
 
   if (imsLoaded) {
   ims.forEach(loc => {
-    let marker = new google.maps.MarkerF(position={ lat: loc.lat, lng: loc.long })
+    let marker = new google.maps.marker(position={ lat: loc.lat, lng: loc.long })
   })}
   console.log(`FlightID before component ${flightid[0]}`);
 
