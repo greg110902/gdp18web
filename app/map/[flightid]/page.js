@@ -139,9 +139,12 @@ export default function Home() {
   //}
 
   if (imsLoaded) {
-  ims.forEach(loc => {
-    let marker = new google.maps.marker(position={ lat: loc.lat, lng: loc.long })
-  })}
+    ims.forEach((loc) => {
+      let marker = new google.maps.marker(
+        (position = { lat: loc.lat, lng: loc.long })
+      );
+    });
+  }
   console.log(`FlightID before component ${flightid[0]}`);
 
   return isLoaded && dataLoaded ? (
@@ -182,9 +185,6 @@ export default function Home() {
             anchor: new google.maps.Point(12.5, 12.5),
           }}
         />
-        {ims.forEach((loc) => {
-          <MarkerF position={{ lat: loc.lat, lng: loc.long }} />;
-        })}
       </GoogleMap>
       <table class="tg" className="flex align-middle justify-center">
         <tbody className="text-black border shadow my-5 P-2">
