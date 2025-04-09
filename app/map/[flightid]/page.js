@@ -140,10 +140,6 @@ export default function Home() {
 
   console.log(`FlightID before component ${flightid[0]}`);
 
-  ims.forEach(loc => {
-    let marker = new MarkerF(position={ lat: loc.lat, lng: loc.long })
-  })
-
   return isLoaded && dataLoaded ? (
     <>
       <Head>
@@ -183,7 +179,7 @@ export default function Home() {
           }}
         />
         {ims.forEach((loc) => {
-          <MarkerF position={{ lat: loc.lat, lng: loc.long }} />;
+          <MarkerF position={{ lat: loc.lat, lng: loc.long }} map={map} />;
         })}
       </GoogleMap>
       <table class="tg" className="flex align-middle justify-center">
