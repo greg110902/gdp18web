@@ -9,6 +9,7 @@ import { useParams } from "next/navigation";
 import pic from "/public/106.png";
 import ac_marker from "/public/airplane-svgrepo-com.png";
 import useRouter from "next/navigation";
+import { AdvancedMarker } from "@vis.gl/react-google-maps";
 
 export default function Home() {
   const [map, setGMap] = React.useState(null);
@@ -180,7 +181,7 @@ export default function Home() {
         />
         {ims.forEach((loc) => {
           console.log(`LOC ${loc}, lat ${loc.lat} long ${loc.long}`);
-          return <MarkerF position={{ lat: loc.lat, lng: loc.long }} />;
+          return <AdvancedMarker position={`${loc.lat},${loc.long}`} />;
         })}
       </GoogleMap>
       <table class="tg" className="flex align-middle justify-center">
