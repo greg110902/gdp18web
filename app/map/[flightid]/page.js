@@ -145,17 +145,24 @@ export default function Home() {
       <Head>
         <title>GDP18 Website</title>
       </Head>
-      <dialog id="my_modal_2" className="modal bg-white">
-        <div className="modal-box bg-slate-300">
-          <Image src={pic} alt="Floating ring" />
-          <div className="flex justify-center align-middle text-black pt-3">
-            Confidence = 0.86
-          </div>
-        </div>
-        <form method="dialog" className="modal-backdrop">
-          <button>close</button>
-        </form>
-      </dialog>
+      {ims.forEach((loc) => {
+        if (imsLoaded) {
+          return (
+            <dialog id={loc["img_url"]} className="modal bg-white">
+              <div className="modal-box bg-slate-300">
+                <Image src={pic} alt="Floating ring" />
+                <div className="flex justify-center align-middle text-black pt-3">
+                  Confidence = 0.86
+                </div>
+              </div>
+              <form method="dialog" className="modal-backdrop">
+                <button>close</button>
+              </form>
+            </dialog>
+          );
+        }
+      })}
+
       <div className="flex">
         <button className="btn">{"<"}</button>
         <div>Flight {FlightID}</div>
@@ -180,7 +187,12 @@ export default function Home() {
         />
         {ims.forEach((loc) => {
           imsLoaded && (
-            <MarkerF position={{ lat: loc["lat"], lng: loc["long"] }} />
+            <MarkerF
+              position={{ lat: loc["lat"], lng: loc["long"] }}
+              onClick={() =>
+                document.getElementById(loc["img_url"]).showModal()
+              }
+            />
           );
         })}
       </GoogleMap>
