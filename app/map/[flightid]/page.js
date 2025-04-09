@@ -138,13 +138,6 @@ export default function Home() {
   //redirect("/flight-not-initiated", "replace");
   //}
 
-  if (imsLoaded) {
-    ims.forEach((loc) => {
-      let marker = new google.maps.marker(
-        (position = { lat: loc.lat, lng: loc.long })
-      );
-    });
-  }
   console.log(`FlightID before component ${flightid[0]}`);
 
   return isLoaded && dataLoaded ? (
