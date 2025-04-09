@@ -178,7 +178,9 @@ export default function Home() {
             anchor: new google.maps.Point(12.5, 12.5),
           }}
         />
-        <MarkerF position={{ lat: ims[1]["lat"], lng: ims[1]["long"] }} />
+        {imsLoaded && (
+          <MarkerF position={{ lat: ims[1]["lat"], lng: ims[1]["long"] }} />
+        )}
       </GoogleMap>
       <table class="tg" className="flex align-middle justify-center">
         <tbody className="text-black border shadow my-5 P-2">
