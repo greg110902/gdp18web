@@ -186,15 +186,16 @@ export default function Home() {
           }}
         />
         {ims.forEach((loc) => {
-          if (imsLoaded) {
-            return (
-            <MarkerF
-              position={{ lat: loc["lat"], lng: loc["long"] }}
-              onClick={() =>
-                document.getElementById(loc["img_url"]).showModal()
-              }
-            />)
-        }
+          return (
+            imsLoaded && (
+              <MarkerF
+                position={{ lat: loc["lat"], lng: loc["long"] }}
+                onClick={() =>
+                  document.getElementById(loc["img_url"]).showModal()
+                }
+              />
+            )
+          );
         })}
       </GoogleMap>
       <table class="tg" className="flex align-middle justify-center">
