@@ -66,6 +66,11 @@ export default function Home() {
           strokeColor: "#FC0303",
         });
 
+        ims.forEach(loc => {
+          const m = new google.maps.MarkerF({position: {lat: loc.lat, lng = lat.long}})
+          m.setMap(map)
+        })
+
         line.setMap(map);
         setAlt(data[lastItem]["alt"]);
         setCurrentPos({
@@ -185,18 +190,6 @@ export default function Home() {
             anchor: new google.maps.Point(12.5, 12.5),
           }}
         />
-        {ims.forEach((loc) => {
-          return (
-            imsLoaded && (
-              <MarkerF
-                position={{ lat: loc["lat"], lng: loc["long"] }}
-                onClick={() =>
-                  document.getElementById(loc["img_url"]).showModal()
-                }
-              />
-            )
-          );
-        })}
       </GoogleMap>
       <table class="tg" className="flex align-middle justify-center">
         <tbody className="text-black border shadow my-5 P-2">
