@@ -83,7 +83,6 @@ export default function Home() {
           console.log(`URL ${loc.img_url}`);
           const m = new google.maps.Marker({
             position: { lat: loc.lat, lng: lat.long },
-            onClick: document.getElementById(loc.img_url).showModal(),
           });
           m.setMap(map);
         });
