@@ -66,10 +66,13 @@ export default function Home() {
           strokeColor: "#FC0303",
         });
 
-        ims.forEach(loc => {
-          const m = new google.maps.MarkerF({position: {lat: loc.lat, lng = lat.long}})
-          m.setMap(map)
-        })
+        ims.forEach((loc) => {
+          const m = new google.maps.MarkerF({
+            position: { lat: loc.lat, lng: lat.long },
+            onClick: document.getElementById(loc.img_url).showModal(),
+          });
+          m.setMap(map);
+        });
 
         line.setMap(map);
         setAlt(data[lastItem]["alt"]);
