@@ -4,7 +4,7 @@ import Head from "next/head";
 import Image from "next/image";
 import React, { useEffect } from "react";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
-import { MarkerF, FORWARD_CLOSED_ARROW } from "@react-google-maps/api";
+import { Marker, MarkerF, FORWARD_CLOSED_ARROW } from "@react-google-maps/api";
 import { useParams } from "next/navigation";
 import pic from "/public/106.png";
 import ac_marker from "/public/airplane-svgrepo-com.png";
@@ -67,7 +67,8 @@ export default function Home() {
         });
 
         ims.forEach((loc) => {
-          const m = new google.maps.MarkerF({
+          console.log(loc.img_url);
+          const m = new google.maps.Marker({
             position: { lat: loc.lat, lng: lat.long },
             onClick: document.getElementById(loc.img_url).showModal(),
           });
