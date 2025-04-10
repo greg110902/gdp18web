@@ -81,7 +81,7 @@ export default function Home() {
         // Creates markers for the spotted locations which shows the images
         ims.forEach((loc) => {
           console.log(`URL ${loc.img_url}`);
-          const m = new google.maps.Marker({
+          const m = new google.maps.MarkerF({
             position: { lat: loc.lat, lng: lat.long },
           });
           m.setMap(map);
