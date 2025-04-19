@@ -160,6 +160,20 @@ export default function Home() {
       <Head>
         <title>GDP18 Website</title>
       </Head>
+      <dialog id={"TEST"} className="modal bg-white">
+        <div className="modal-box bg-slate-300">
+          <Image
+            src="https://jhtumirkkwvwnnplqeni.supabase.co/storage/v1/object/public/images/images/1744212119109.png"
+            alt="Floating ring"
+          />
+          <div className="flex justify-center align-middle text-black pt-3">
+            Confidence = 0.86
+          </div>
+        </div>
+        <form method="dialog" className="modal-backdrop">
+          <button>close</button>
+        </form>
+      </dialog>
       {ims.forEach((loc) => {
         if (imsLoaded) {
           return (
@@ -199,6 +213,10 @@ export default function Home() {
             rotation: 41.45,
             anchor: new google.maps.Point(12.5, 12.5),
           }}
+        />
+        <MarkerF
+          position={{ lat: 51.49420177096774, lng: -1.7499070451612904 }}
+          onClick={() => document.getElementById("TEST").showModal()}
         />
       </GoogleMap>
       <table class="tg" className="flex align-middle justify-center">
