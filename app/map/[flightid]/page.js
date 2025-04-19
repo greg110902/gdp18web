@@ -161,7 +161,7 @@ export default function Home() {
         <title>GDP18 Website</title>
       </Head>
       <dialog id={"TEST"} className="modal bg-white">
-        <div className="modal-box justify-center bg-slate-300">
+        <div className="modal-box justify-center align-middle bg-slate-300">
           <Image
             src="https://jhtumirkkwvwnnplqeni.supabase.co/storage/v1/object/public/images/images/1744212119109.png"
             alt="Floating ring"
