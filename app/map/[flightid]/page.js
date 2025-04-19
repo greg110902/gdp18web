@@ -160,11 +160,15 @@ export default function Home() {
       <Head>
         <title>GDP18 Website</title>
       </Head>
-      <dialog id={"TEST"} className="modal bg-white">
+      <dialog
+        id={"TEST"}
+        className="modal bg-white justify-center align-middle"
+      >
         <div className="modal-box justify-center align-middle bg-slate-300">
           <Image
             src="https://jhtumirkkwvwnnplqeni.supabase.co/storage/v1/object/public/images/images/1744212119109.png"
             alt="Floating ring"
+            className="justify-center align-middle"
           />
           <div className="flex justify-center align-middle text-black pt-3">
             Confidence = 0.96
