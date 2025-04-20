@@ -196,7 +196,7 @@ export default function Home() {
         }
       })}
 
-      <div className="flex">
+      <div className="flex justify-content align-middle">
         <button className="btn bg-sky-100">{"<"}</button>
         <div className="px-5">Flight {FlightID}</div>
         <button className="btn bg-sky-100">{">"}</button>
