@@ -197,9 +197,9 @@ export default function Home() {
       })}
 
       <div className="flex">
-        <button className="btn">{"<"}</button>
-        <div>Flight {FlightID}</div>
-        <button className="btn">{">"}</button>
+        <button className="btn bg-gray200">{"<"}</button>
+        <div className="px-5">Flight {FlightID}</div>
+        <button className="btn bg-gray200">{">"}</button>
       </div>
       <GoogleMap
         id="map"
