@@ -216,8 +216,8 @@ export default function Home() {
             return (
               <MarkerF
                 position={{
-                  lat: data[lastItem]["lat"],
-                  lng: data[lastItem]["long"],
+                  lat: loc["lat"],
+                  lng: loc["long"],
                 }}
                 onClick={() =>
                   document.getElementById(loc["img_url"]).showModal()
@@ -236,10 +236,6 @@ export default function Home() {
             rotation: 41.45,
             anchor: new google.maps.Point(12.5, 12.5),
           }}
-        />
-        <MarkerF
-          position={{ lat: 51.49420177096774, lng: -1.7499070451612904 }}
-          onClick={() => document.getElementById("TEST").showModal()}
         />
       </GoogleMap>
       <table class="tg" className="flex align-middle justify-center">
