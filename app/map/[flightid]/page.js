@@ -178,8 +178,8 @@ export default function Home() {
           <button>close</button>
         </form>
       </dialog>
-      {ims.forEach((loc) => {
-        if (imsLoaded) {
+      {imsLoaded ? (
+        ims.forEach((loc) => {
           return (
             <dialog id={loc["img_url"]} className="modal bg-white">
               <div className="modal-box bg-slate-300">
@@ -193,8 +193,10 @@ export default function Home() {
               </form>
             </dialog>
           );
-        }
-      })}
+        })
+      ) : (
+        <></>
+      )}
 
       <div className="flex justify-center align-middle">
         <button className="btn bg-sky-100">{"<"}</button>
