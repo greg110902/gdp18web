@@ -213,6 +213,7 @@ export default function Home() {
       >
         {imsLoaded ? (
           ims.forEach((loc) => {
+            console.log(loc["img_url"]);
             return (
               <MarkerF
                 position={{
