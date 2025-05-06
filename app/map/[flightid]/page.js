@@ -211,6 +211,23 @@ export default function Home() {
         onLoad={onLoad}
         onUnmount={onUnmount}
       >
+        {imsLoaded ? (
+          ims.forEach((loc) => {
+            return (
+              <MarkerF
+                position={{
+                  lat: data[lastItem]["lat"],
+                  lng: data[lastItem]["long"],
+                }}
+                onClick={() =>
+                  document.getElementById(loc["img_url"]).showModal()
+                }
+              />
+            );
+          })
+        ) : (
+          <></>
+        )}
         <MarkerF
           position={{ lat: data[lastItem]["lat"], lng: data[lastItem]["long"] }}
           icon={{
