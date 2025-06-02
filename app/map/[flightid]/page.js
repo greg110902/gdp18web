@@ -16,8 +16,8 @@ export default function Home() {
   const [width, setWidth] = React.useState();
   const [lastItem, setLastItem] = React.useState(0);
   const [center, setCenter] = React.useState({
-    lat: 50.93511631590241,
-    lng: -1.3946559970412276,
+    lat: 51.497124,
+    lng: -1.743271,
   });
   const [currentPos, setCurrentPos] = React.useState();
   const [alt, setAlt] = React.useState();
