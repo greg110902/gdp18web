@@ -35,6 +35,7 @@ export default function Home() {
   const R = 6371e3;
   const { flightid } = useParams();
 
+  
   useEffect(() => {
     // useEffect runs while the page is open
     const fetchData = async () => {
@@ -55,6 +56,28 @@ export default function Home() {
     // Set width of map to the screen width
     setWidth(window.screen.width);
 
+    fetchData();
+      fetchIms();
+
+      if (dataLoaded) {
+        setLastItem(data.length - 1);
+        var FlightPath = [];
+
+        // Populate array with ground track data
+        data.forEach((element) => {
+          FlightPath.push({ lat: element["lat"], lng: element["long"] });
+        });
+
+        // Ground track
+        const line = new google.maps.Polyline({
+          path: FlightPath,
+          strokeColor: "#FC0303",
+        });
+
+        line.setMap(map);
+        }, [data, width, dataLoaded]);
+
+    /*
     // Code within setTimeout() runs every 1000ms to save performance + reduce requests
     setTimeout(() => {
       // Fetch ground track and spotted locations data
@@ -124,8 +147,9 @@ export default function Home() {
           ).toFixed(2)
         );
       }
-    }, 1000);
-  }, [data, width, dataLoaded]);
+    }, 1000);*/
+  
+  
 
   const containerStyle = {
     width: `${width}px`,
