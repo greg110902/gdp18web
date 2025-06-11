@@ -75,6 +75,51 @@ export default function Home() {
 
       line.setMap(map);
     }
+
+    ims.forEach((loc) => {
+      console.log(`URL ${loc.img_url}`);
+      const m = new google.maps.MarkerF({
+        position: { lat: loc.lat, lng: lat.long },
+      });
+      m.setMap(map);
+    });
+
+    // Update the data table
+    setAlt(data[lastItem]["alt"]);
+    setCurrentPos({
+      lat: data[lastItem]["lat"],
+      long: data[lastItem]["long"],
+    });
+    setHeading(data[lastItem]["head"]);
+
+    if (dataLoaded) {
+      // Calculates the distance between the points
+      var lat1 = (data[lastItem - 1]["lat"] * Math.PI) / 180;
+      var lat2 = (data[lastItem]["lat"] * Math.PI) / 180;
+      var long1 = (data[lastItem - 1]["long"] * Math.PI) / 180;
+      var long2 = (data[lastItem]["long"] * Math.PI) / 180;
+
+      console.log(data[lastItem - 1]["lat"]);
+
+      var d_phi = lat2 - lat1;
+      var d_lambda = long2 - long1;
+
+      var a =
+        Math.sin(d_phi / 2) * Math.sin(d_phi / 2) +
+        Math.cos(lat1) *
+          Math.cos(lat2) *
+          Math.sin(d_lambda / 2) *
+          Math.sin(d_lambda / 2);
+
+      var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+      setSpeed(
+        (
+          (1000 * R * c) /
+          (data[lastItem]["time"] - data[lastItem - 1]["time"])
+        ).toFixed(2)
+      );
+    }
   }, [data, width, dataLoaded]);
 
   /*
